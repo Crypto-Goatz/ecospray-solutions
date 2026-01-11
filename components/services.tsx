@@ -1,94 +1,131 @@
 "use client"
 
-import { Home, Building2, Warehouse, ClipboardCheck, ArrowRight } from "lucide-react"
-import { Card } from "@/components/ui/card"
+import Image from "next/image"
 import Link from "next/link"
+import { Home, Building2, Warehouse, ClipboardCheck, ArrowRight, CheckCircle2 } from "lucide-react"
 
 const services = [
   {
     icon: Home,
     title: "Residential Insulation",
-    description: "Complete home insulation solutions including attics, walls, basements, and crawl spaces. Keep your family comfortable year-round.",
+    description: "Complete home insulation solutions including attics, walls, basements, and crawl spaces.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
     features: ["Attic Insulation", "Wall Cavities", "Basement Sealing", "Crawl Spaces"],
+    color: "from-green-500 to-emerald-600",
   },
   {
     icon: Building2,
     title: "Commercial Insulation",
-    description: "Energy-efficient insulation for offices, warehouses, and commercial buildings. Reduce operating costs and improve comfort.",
+    description: "Energy-efficient insulation for offices, warehouses, and commercial buildings.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
     features: ["Office Buildings", "Retail Spaces", "Warehouses", "Industrial"],
+    color: "from-blue-500 to-cyan-600",
   },
   {
     icon: Warehouse,
     title: "New Construction",
-    description: "Partner with builders for superior insulation in new homes and buildings. Meet energy codes and exceed expectations.",
+    description: "Partner with builders for superior insulation in new homes and buildings.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
     features: ["Builder Programs", "Code Compliance", "Custom Solutions", "Tight Deadlines"],
+    color: "from-orange-500 to-amber-600",
   },
   {
     icon: ClipboardCheck,
     title: "Energy Audits",
-    description: "Comprehensive energy assessments to identify air leaks, insulation gaps, and opportunities for improvement.",
+    description: "Comprehensive energy assessments to identify opportunities for improvement.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
     features: ["Thermal Imaging", "Blower Door Tests", "Detailed Reports", "ROI Analysis"],
+    color: "from-purple-500 to-violet-600",
   },
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-zinc-900/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 pattern-dots opacity-50" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Our{" "}
-            <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-              Insulation Services
-            </span>
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
+            Our Services
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Professional Insulation
+            <span className="block gradient-text">For Every Need</span>
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Professional spray foam insulation for every application. From cozy homes to
-            large commercial spaces, we deliver superior results.
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            From cozy homes to large commercial spaces, we deliver superior results
+            with industry-leading spray foam technology.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service) => (
-            <Card
+        <div className="grid md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <div
               key={service.title}
-              className="p-6 bg-zinc-900/50 border-zinc-800 hover:border-green-500/50 transition-all group"
+              className="group bg-white rounded-2xl shadow-lg shadow-slate-200/50 overflow-hidden hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-500 card-lift"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <service.icon className="w-6 h-6 text-white" />
+              {/* Image */}
+              <div className="relative h-56 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-60 mix-blend-multiply`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+                {/* Icon Badge */}
+                <div className={`absolute top-4 left-4 w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg`}>
+                  <service.icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-zinc-400 text-sm mb-4">{service.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="px-2 py-1 text-xs bg-green-500/10 text-green-400 rounded-full border border-green-500/20"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+
+                {/* Title Overlay */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                 </div>
               </div>
-            </Card>
+
+              {/* Content */}
+              <div className="p-6">
+                <p className="text-slate-600 mb-4">{service.description}</p>
+
+                {/* Features */}
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {service.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-2 text-sm text-slate-700">
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-green-600 font-medium hover:text-green-700 group/link"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-slate-600 mb-4">Not sure what you need?</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors group"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium rounded-full hover:from-green-600 hover:to-emerald-700 transition-all shadow-lg shadow-green-500/25 hover:shadow-xl hover:shadow-green-500/30"
           >
-            Request a free consultation
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Schedule a Free Consultation
+            <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </div>
