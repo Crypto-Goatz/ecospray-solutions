@@ -12,6 +12,7 @@ const services = [
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
     features: ["Attic Insulation", "Wall Cavities", "Basement Sealing", "Crawl Spaces"],
     color: "from-green-500 to-emerald-600",
+    href: "/services/residential-insulation",
   },
   {
     icon: Building2,
@@ -20,6 +21,7 @@ const services = [
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
     features: ["Office Buildings", "Retail Spaces", "Warehouses", "Industrial"],
     color: "from-blue-500 to-cyan-600",
+    href: "/services/commercial-insulation",
   },
   {
     icon: Warehouse,
@@ -28,6 +30,7 @@ const services = [
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
     features: ["Builder Programs", "Code Compliance", "Custom Solutions", "Tight Deadlines"],
     color: "from-orange-500 to-amber-600",
+    href: "/services/new-construction",
   },
   {
     icon: ClipboardCheck,
@@ -36,6 +39,7 @@ const services = [
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
     features: ["Thermal Imaging", "Blower Door Tests", "Detailed Reports", "ROI Analysis"],
     color: "from-purple-500 to-violet-600",
+    href: "/services/energy-audits",
   },
 ]
 
@@ -106,7 +110,7 @@ export default function Services() {
 
                 {/* CTA */}
                 <Link
-                  href="/contact"
+                  href={service.href}
                   className="inline-flex items-center gap-2 text-green-600 font-medium hover:text-green-700 group/link"
                 >
                   Learn More
