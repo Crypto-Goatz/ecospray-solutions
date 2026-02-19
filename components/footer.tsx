@@ -1,12 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { Leaf, Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react"
+import Image from "next/image"
+import { Phone, Mail, MapPin, Facebook, Instagram, BookOpen } from "lucide-react"
 
 const DEFAULT_CONFIG: Record<string, string> = {
   business_name: 'EcoSpray Solutions',
-  phone: '(412) 555-1234',
-  email: 'info@ecospraysolutions.com',
+  phone: '(724) 819-2727',
+  email: 'hello@ecospraysolutions.com',
   location: 'Murrysville, PA',
   service_area: 'Serving Pittsburgh & Western PA',
   license: 'PA License #123456',
@@ -25,13 +26,14 @@ export default function Footer({ config }: FooterProps) {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                <Leaf className="w-6 h-6 text-white" />
+            <Link href="/" className="flex items-center gap-3 mb-4 group">
+              <div className="w-12 h-12 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" fill className="object-contain" />
               </div>
               <div>
                 <span className="font-bold text-white text-lg">EcoSpray</span>
                 <span className="text-green-400 text-sm ml-1">Solutions</span>
+                <div className="text-xs text-zinc-500">Spray Foam Insulation</div>
               </div>
             </Link>
             <p className="text-zinc-400 text-sm mb-4 max-w-md">
@@ -66,6 +68,10 @@ export default function Footer({ config }: FooterProps) {
               </Link>
               <Link href="/contact" className="block text-sm text-zinc-400 hover:text-white transition-colors">
                 Get a Quote
+              </Link>
+              <Link href="/free-guide" className="flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors font-medium">
+                <BookOpen className="w-3.5 h-3.5" />
+                Free Guide
               </Link>
             </div>
           </div>

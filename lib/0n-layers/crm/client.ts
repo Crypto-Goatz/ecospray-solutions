@@ -33,6 +33,7 @@ export async function upsertContact(params: {
   phone?: string
   tags?: string[]
   source?: string
+  customFields?: Record<string, string>
 }): Promise<CRMContact | null> {
   const { apiKey, locationId } = getCredentials()
   if (!apiKey || !locationId) {
@@ -41,18 +42,26 @@ export async function upsertContact(params: {
   }
 
   try {
+    const body: Record<string, unknown> = {
+      locationId,
+      email: params.email,
+      firstName: params.firstName,
+      lastName: params.lastName,
+      phone: params.phone,
+      tags: params.tags || [],
+      source: params.source || 'website',
+    }
+    if (params.customFields) {
+      body.customField = Object.entries(params.customFields).map(([key, value]) => ({
+        key,
+        field_value: value,
+      }))
+    }
+
     const res = await fetch(`${CRM_BASE_URL}/contacts/upsert`, {
       method: 'POST',
       headers: headers(apiKey),
-      body: JSON.stringify({
-        locationId,
-        email: params.email,
-        firstName: params.firstName,
-        lastName: params.lastName,
-        phone: params.phone,
-        tags: params.tags || [],
-        source: params.source || 'website',
-      }),
+      body: JSON.stringify(body),
     })
 
     if (!res.ok) {

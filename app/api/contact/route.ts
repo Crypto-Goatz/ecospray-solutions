@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { appendSheetRow } from '@/lib/0n-layers/google-backend/sheets'
+import { getEmailBrandingForCRM } from '@/lib/email-branding'
 
 function json(data: object, status = 200) {
   return NextResponse.json(data, { status })
@@ -87,12 +88,14 @@ export async function POST(req: NextRequest) {
     if (process.env.CRM_API_KEY) {
       try {
         const { upsertContact } = await import('@/lib/0n-layers/crm/client')
+        const branding = getEmailBrandingForCRM()
         await upsertContact({
           firstName,
           lastName,
           email: email.trim().toLowerCase(),
           phone: (phone || '').trim(),
-          tags: ['ecospray-website', propertyType].filter(Boolean) as string[],
+          tags: ['ecospray-website', 'contact-form', propertyType].filter(Boolean) as string[],
+          customFields: branding,
         })
       } catch (e) {
         console.error('CRM sync failed:', e)

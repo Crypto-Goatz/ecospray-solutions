@@ -90,8 +90,8 @@ export const FALLBACK_STATS = [
 export const FALLBACK_CONFIG: Record<string, string> = {
   business_name: 'EcoSpray Solutions',
   tagline: "Pittsburgh's Spray Foam Experts",
-  phone: '(412) 555-1234',
-  email: 'info@ecospraysolutions.com',
+  phone: '(724) 819-2727',
+  email: 'hello@ecospraysolutions.com',
   location: 'Murrysville, PA',
   service_area: 'Serving Pittsburgh & Western PA',
   license: 'PA License #123456',

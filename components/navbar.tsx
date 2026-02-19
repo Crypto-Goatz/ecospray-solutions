@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X, Phone, Leaf } from "lucide-react"
+import Image from "next/image"
+import { Menu, X, Phone, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -21,13 +22,13 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-              <Leaf className="w-6 h-6 text-white" />
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" fill className="object-contain" />
             </div>
-            <div>
+            <div className="hidden sm:block">
               <span className="font-bold text-white text-lg">EcoSpray</span>
-              <span className="hidden sm:inline text-green-400 text-sm ml-1">Solutions</span>
+              <span className="text-green-400 text-sm ml-1">Solutions</span>
             </div>
           </Link>
 
@@ -42,16 +43,23 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <Link
+              href="/free-guide"
+              className="flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors font-medium"
+            >
+              <BookOpen className="w-4 h-4" />
+              Free Guide
+            </Link>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+14125551234"
+              href="tel:+17248192727"
               className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
             >
               <Phone className="w-4 h-4" />
-              (412) 555-1234
+              (724) 819-2727
             </a>
             <Button
               asChild
@@ -84,18 +92,26 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                href="/free-guide"
+                className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors px-2 py-1 font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <BookOpen className="w-4 h-4" />
+                Free Guide
+              </Link>
               <a
-                href="tel:+14125551234"
+                href="tel:+17248192727"
                 className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors px-2 py-1"
               >
                 <Phone className="w-4 h-4" />
-                (412) 555-1234
+                (724) 819-2727
               </a>
               <Button
                 asChild
                 className="bg-gradient-to-r from-green-500 to-emerald-600 text-white mt-2"
               >
-                <Link href="/contact">Get Free Quote</Link>
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Get Free Quote</Link>
               </Button>
             </div>
           </div>
