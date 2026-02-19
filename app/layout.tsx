@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
+import { ComplianceWrapper } from "@/components/compliance-wrapper"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,11 +25,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const cro9Key = process.env.NEXT_PUBLIC_CRO9_KEY
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
+        <ComplianceWrapper>
+          <Navbar />
+          <main>{children}</main>
+        </ComplianceWrapper>
+        {cro9Key && (
+          <script
+            src="/cro9-tracker.js"
+            data-key={cro9Key}
+            data-consent-mode="essential"
+            defer
+          />
+        )}
       </body>
     </html>
   )

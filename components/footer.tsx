@@ -3,7 +3,22 @@
 import Link from "next/link"
 import { Leaf, Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react"
 
-export default function Footer() {
+const DEFAULT_CONFIG: Record<string, string> = {
+  business_name: 'EcoSpray Solutions',
+  phone: '(412) 555-1234',
+  email: 'info@ecospraysolutions.com',
+  location: 'Murrysville, PA',
+  service_area: 'Serving Pittsburgh & Western PA',
+  license: 'PA License #123456',
+}
+
+interface FooterProps {
+  config?: Record<string, string>
+}
+
+export default function Footer({ config }: FooterProps) {
+  const c = { ...DEFAULT_CONFIG, ...config }
+
   return (
     <footer className="bg-zinc-950 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -60,24 +75,24 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Contact Us</h4>
             <div className="space-y-3">
               <a
-                href="tel:+14125551234"
+                href={`tel:${c.phone.replace(/[^+\d]/g, '')}`}
                 className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
               >
                 <Phone className="w-4 h-4 text-green-500" />
-                (412) 555-1234
+                {c.phone}
               </a>
               <a
-                href="mailto:info@ecospraysolutions.com"
+                href={`mailto:${c.email}`}
                 className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 text-green-500" />
-                info@ecospraysolutions.com
+                {c.email}
               </a>
               <div className="flex items-start gap-2 text-sm text-zinc-400">
                 <MapPin className="w-4 h-4 text-green-500 mt-0.5" />
                 <span>
-                  Murrysville, PA<br />
-                  Serving Pittsburgh & Western PA
+                  {c.location}<br />
+                  {c.service_area}
                 </span>
               </div>
             </div>
@@ -87,10 +102,16 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-zinc-500">
-            &copy; {new Date().getFullYear()} EcoSpray Solutions. All rights reserved.
+            &copy; {new Date().getFullYear()} {c.business_name}. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-sm text-zinc-500">
-            <span>PA License #123456</span>
+            <Link href="/privacy" className="hover:text-zinc-300 transition-colors">Privacy Policy</Link>
+            <span>|</span>
+            <Link href="/terms" className="hover:text-zinc-300 transition-colors">Terms</Link>
+            <span>|</span>
+            <Link href="/cookies" className="hover:text-zinc-300 transition-colors">Cookies</Link>
+            <span>|</span>
+            <span>{c.license}</span>
             <span>|</span>
             <span>Fully Insured</span>
           </div>

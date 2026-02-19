@@ -5,17 +5,25 @@ import Process from "@/components/process"
 import Testimonials from "@/components/testimonials"
 import Cta from "@/components/cta"
 import Footer from "@/components/footer"
+import { getServices, getTestimonials, getStats, getSiteConfig } from "@/lib/cms"
 
-export default function Home() {
+export default async function Home() {
+  const [services, testimonials, stats, config] = await Promise.all([
+    getServices(),
+    getTestimonials(),
+    getStats(),
+    getSiteConfig(),
+  ])
+
   return (
     <div className="min-h-screen bg-zinc-950">
-      <Hero />
-      <Services />
+      <Hero config={config} stats={stats} />
+      <Services services={services} />
       <Benefits />
       <Process />
-      <Testimonials />
-      <Cta />
-      <Footer />
+      <Testimonials testimonials={testimonials} config={config} />
+      <Cta config={config} />
+      <Footer config={config} />
     </div>
   )
 }

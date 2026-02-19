@@ -5,13 +5,48 @@ import Image from "next/image"
 import { ArrowRight, Play, Zap, Shield, Award, Phone, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function Hero() {
+const DEFAULT_CONFIG: Record<string, string> = {
+  business_name: 'EcoSpray Solutions',
+  headline_1: "Pittsburgh's",
+  headline_2: 'Spray Foam',
+  headline_3: 'Experts',
+  hero_subheadline: 'Professional insulation for homes and businesses. Lower energy costs, improved comfort, and lasting protection for the greater Pittsburgh area.',
+  hero_badge: 'Save Up to 50% on Energy Bills',
+  hero_image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80',
+  phone: '(412) 555-1234',
+  badge_1: 'Licensed & Insured',
+  badge_2: '10+ Years Experience',
+  badge_3: 'Energy Star Certified',
+}
+
+const DEFAULT_STATS = [
+  { value: '500+', label: 'Projects Completed', order: '1' },
+  { value: '50%', label: 'Avg. Energy Savings', order: '2' },
+  { value: '4.9\u2605', label: 'Customer Rating', order: '3' },
+  { value: '10+', label: 'Years Experience', order: '4' },
+]
+
+interface HeroProps {
+  config?: Record<string, string>
+  stats?: Array<Record<string, string>>
+}
+
+export default function Hero({ config, stats }: HeroProps) {
+  const c = { ...DEFAULT_CONFIG, ...config }
+  const s = stats && stats.length > 0 ? stats : DEFAULT_STATS
+
+  const badges = [
+    { icon: Shield, text: c.badge_1 },
+    { icon: Award, text: c.badge_2 },
+    { icon: Zap, text: c.badge_3 },
+  ]
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+          src={c.hero_image}
           alt="Professional insulation work"
           fill
           className="object-cover"
@@ -35,22 +70,21 @@ export default function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 backdrop-blur-sm animate-pulse-glow">
               <Zap className="w-4 h-4 text-green-400" />
-              <span className="text-sm font-medium text-green-400">Save Up to 50% on Energy Bills</span>
+              <span className="text-sm font-medium text-green-400">{c.hero_badge}</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-white">Pittsburgh&apos;s</span>
+              <span className="text-white">{c.headline_1}</span>
               <br />
-              <span className="gradient-text">Spray Foam</span>
+              <span className="gradient-text">{c.headline_2}</span>
               <br />
-              <span className="text-white">Experts</span>
+              <span className="text-white">{c.headline_3}</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl text-zinc-300 max-w-lg leading-relaxed">
-              Professional insulation for homes and businesses. Lower energy costs,
-              improved comfort, and lasting protection for the greater Pittsburgh area.
+              {c.hero_subheadline}
             </p>
 
             {/* CTAs */}
@@ -71,20 +105,16 @@ export default function Hero() {
                 variant="outline"
                 className="border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 text-lg px-8 py-6 group"
               >
-                <a href="tel:+14125551234">
+                <a href={`tel:${c.phone.replace(/[^+\d]/g, '')}`}>
                   <Phone className="mr-2 w-5 h-5" />
-                  (412) 555-1234
+                  {c.phone}
                 </a>
               </Button>
             </div>
 
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-6 pt-4">
-              {[
-                { icon: Shield, text: "Licensed & Insured" },
-                { icon: Award, text: "10+ Years Experience" },
-                { icon: Zap, text: "Energy Star Certified" },
-              ].map((badge) => (
+              {badges.map((badge) => (
                 <div key={badge.text} className="flex items-center gap-2 text-zinc-400">
                   <badge.icon className="w-5 h-5 text-green-500" />
                   <span className="text-sm">{badge.text}</span>
@@ -96,16 +126,11 @@ export default function Hero() {
           {/* Right - Stats Cards */}
           <div className="hidden lg:block">
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: "500+", label: "Projects Completed", delay: "0s" },
-                { value: "50%", label: "Avg. Energy Savings", delay: "0.1s" },
-                { value: "4.9★", label: "Customer Rating", delay: "0.2s" },
-                { value: "10+", label: "Years Experience", delay: "0.3s" },
-              ].map((stat) => (
+              {s.map((stat, index) => (
                 <div
                   key={stat.label}
                   className="border-gradient p-6 backdrop-blur-sm card-lift"
-                  style={{ animationDelay: stat.delay }}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="text-4xl font-bold text-green-400 mb-2">{stat.value}</div>
                   <div className="text-sm text-zinc-400">{stat.label}</div>

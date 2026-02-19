@@ -5,7 +5,18 @@ import Image from "next/image"
 import { Phone, ArrowRight, Shield, Award, Clock, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function Cta() {
+const DEFAULT_CONFIG: Record<string, string> = {
+  phone: '(412) 555-1234',
+  service_area: 'Pittsburgh & Western PA',
+}
+
+interface CtaProps {
+  config?: Record<string, string>
+}
+
+export default function Cta({ config }: CtaProps) {
+  const c = { ...DEFAULT_CONFIG, ...config }
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background Image */}
@@ -56,9 +67,9 @@ export default function Cta() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6"
               >
-                <a href="tel:+14125551234">
+                <a href={`tel:${c.phone.replace(/[^+\d]/g, '')}`}>
                   <Phone className="mr-2 w-5 h-5" />
-                  (412) 555-1234
+                  {c.phone}
                 </a>
               </Button>
             </div>
@@ -87,7 +98,7 @@ export default function Cta() {
             <div className="space-y-6">
               {/* Phone */}
               <a
-                href="tel:+14125551234"
+                href={`tel:${c.phone.replace(/[^+\d]/g, '')}`}
                 className="flex items-center gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
@@ -96,7 +107,7 @@ export default function Cta() {
                 <div>
                   <div className="text-sm text-green-200">Call us now</div>
                   <div className="text-xl font-bold text-white group-hover:text-green-300 transition-colors">
-                    (412) 555-1234
+                    {c.phone}
                   </div>
                 </div>
               </a>
@@ -109,7 +120,7 @@ export default function Cta() {
                 <div>
                   <div className="text-sm text-green-200">Service Area</div>
                   <div className="text-lg font-medium text-white">
-                    Pittsburgh & Western PA
+                    {c.service_area}
                   </div>
                 </div>
               </div>
