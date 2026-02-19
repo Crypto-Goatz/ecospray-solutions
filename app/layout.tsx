@@ -62,6 +62,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const cro9Key = process.env.NEXT_PUBLIC_CRO9_KEY
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   const localBusiness = getLocalBusinessSchema()
   const webSite = getWebSiteSchema()
 
@@ -76,6 +77,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite) }}
         />
+        {gaId && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{page_path:window.location.pathname});`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className={inter.className}>
         <ComplianceWrapper>
