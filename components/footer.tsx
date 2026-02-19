@@ -41,10 +41,10 @@ export default function Footer({ config }: FooterProps) {
               businesses save energy, improve comfort, and protect their properties.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-zinc-500 hover:text-green-400 transition-colors">
+              <a href="#" className="text-zinc-500 hover:text-green-400 transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-zinc-500 hover:text-green-400 transition-colors">
+              <a href="#" className="text-zinc-500 hover:text-green-400 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -57,14 +57,17 @@ export default function Footer({ config }: FooterProps) {
               <Link href="/" className="block text-sm text-zinc-400 hover:text-white transition-colors">
                 Home
               </Link>
-              <Link href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">
+              <Link href="/services" className="block text-sm text-zinc-400 hover:text-white transition-colors">
                 Services
               </Link>
-              <Link href="#benefits" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                Benefits
+              <Link href="/about" className="block text-sm text-zinc-400 hover:text-white transition-colors">
+                About Us
               </Link>
-              <Link href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                How It Works
+              <Link href="/process" className="block text-sm text-zinc-400 hover:text-white transition-colors">
+                Our Process
+              </Link>
+              <Link href="/testimonials" className="block text-sm text-zinc-400 hover:text-white transition-colors">
+                Reviews
               </Link>
               <Link href="/contact" className="block text-sm text-zinc-400 hover:text-white transition-colors">
                 Get a Quote

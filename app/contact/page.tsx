@@ -74,7 +74,7 @@ export default function ContactPage() {
                 <h3 className="font-bold text-white mb-4">Contact Information</h3>
                 <div className="space-y-4">
                   <a
-                    href="tel:+14125551234"
+                    href="tel:+17248192727"
                     className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
                   >
                     <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
@@ -82,11 +82,11 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-sm text-zinc-500">Phone</div>
-                      <div className="text-white">(412) 555-1234</div>
+                      <div className="text-white">(724) 819-2727</div>
                     </div>
                   </a>
                   <a
-                    href="mailto:info@ecospraysolutions.com"
+                    href="mailto:hello@ecospraysolutions.com"
                     className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
                   >
                     <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-sm text-zinc-500">Email</div>
-                      <div className="text-white">info@ecospraysolutions.com</div>
+                      <div className="text-white">hello@ecospraysolutions.com</div>
                     </div>
                   </a>
                   <div className="flex items-center gap-3 text-zinc-400">

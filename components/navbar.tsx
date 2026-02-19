@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "#services" },
-  { name: "Benefits", href: "#benefits" },
-  { name: "Process", href: "#process" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Process", href: "/process" },
+  { name: "Reviews", href: "/testimonials" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -73,6 +74,7 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 text-zinc-400 hover:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
