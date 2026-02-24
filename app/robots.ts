@@ -1,30 +1,14 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin/', '/api/'],
-      },
-      {
-        userAgent: 'GPTBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'ClaudeBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'PerplexityBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Google-Extended',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
+        disallow: "/api/",
       },
     ],
-    sitemap: 'https://ecospraysolutions.com/sitemap.xml',
-  }
+    sitemap: "https://sprayfoam.nearpittsburgh.com/sitemap.xml",
+  };
 }

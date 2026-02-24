@@ -1,131 +1,158 @@
-"use client"
+import Link from "next/link";
+import { Phone, Mail, Clock, MapPin } from "lucide-react";
+import { SITE } from "@/lib/constants";
+import { SERVICES } from "@/lib/services-data";
+import { AREAS } from "@/lib/areas-data";
 
-import Link from "next/link"
-import Image from "next/image"
-import { Phone, Mail, MapPin, Facebook, Instagram, BookOpen } from "lucide-react"
+const COMPANY_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Process", href: "/process" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Free Estimate", href: "/free-estimate" },
+  { label: "Contact", href: "/contact" },
+];
 
-const DEFAULT_CONFIG: Record<string, string> = {
-  business_name: 'EcoSpray Solutions',
-  phone: '(724) 819-2727',
-  email: 'hello@ecospraysolutions.com',
-  location: 'Murrysville, PA',
-  service_area: 'Serving Pittsburgh & Western PA',
-  license: 'PA License #123456',
-}
-
-interface FooterProps {
-  config?: Record<string, string>
-}
-
-export default function Footer({ config }: FooterProps) {
-  const c = { ...DEFAULT_CONFIG, ...config }
+export default function Footer() {
+  const topAreas = AREAS.slice(0, 6);
 
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <div className="w-12 h-12 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" fill className="object-contain" />
-              </div>
-              <div>
-                <span className="font-bold text-white text-lg">EcoSpray</span>
-                <span className="text-green-400 text-sm ml-1">Solutions</span>
-                <div className="text-xs text-zinc-500">Spray Foam Insulation</div>
-              </div>
-            </Link>
-            <p className="text-zinc-400 text-sm mb-4 max-w-md">
-              Pittsburgh&apos;s trusted spray foam insulation experts. We help homeowners and
-              businesses save energy, improve comfort, and protect their properties.
-            </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="text-zinc-500 hover:text-green-400 transition-colors" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-zinc-500 hover:text-green-400 transition-colors" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
+    <footer className="bg-[var(--navy)] text-white">
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Column 1: Company */}
+          <div>
+            <h4 className="text-lg font-bold mb-5 relative pb-3 after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--orange)] after:rounded-full">
+              Company
+            </h4>
+            <ul className="space-y-3">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/60 hover:text-[var(--orange)] transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2: Services */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
-            <div className="space-y-2">
-              <Link href="/" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                Home
-              </Link>
-              <Link href="/services" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                Services
-              </Link>
-              <Link href="/about" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                About Us
-              </Link>
-              <Link href="/process" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                Our Process
-              </Link>
-              <Link href="/testimonials" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                Reviews
-              </Link>
-              <Link href="/contact" className="block text-sm text-zinc-400 hover:text-white transition-colors">
-                Get a Quote
-              </Link>
-              <Link href="/free-guide" className="flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors font-medium">
-                <BookOpen className="w-3.5 h-3.5" />
-                Free Guide
-              </Link>
-            </div>
+            <h4 className="text-lg font-bold mb-5 relative pb-3 after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--orange)] after:rounded-full">
+              Services
+            </h4>
+            <ul className="space-y-3">
+              {SERVICES.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-sm text-white/60 hover:text-[var(--orange)] transition-colors duration-300"
+                  >
+                    {service.shortTitle}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Contact */}
+          {/* Column 3: Service Areas */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Contact Us</h4>
-            <div className="space-y-3">
-              <a
-                href={`tel:${c.phone.replace(/[^+\d]/g, '')}`}
-                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
-              >
-                <Phone className="w-4 h-4 text-green-500" />
-                {c.phone}
-              </a>
-              <a
-                href={`mailto:${c.email}`}
-                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
-              >
-                <Mail className="w-4 h-4 text-green-500" />
-                {c.email}
-              </a>
-              <div className="flex items-start gap-2 text-sm text-zinc-400">
-                <MapPin className="w-4 h-4 text-green-500 mt-0.5" />
-                <span>
-                  {c.location}<br />
-                  {c.service_area}
+            <h4 className="text-lg font-bold mb-5 relative pb-3 after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--orange)] after:rounded-full">
+              Service Areas
+            </h4>
+            <ul className="space-y-3">
+              {topAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/areas/${area.slug}`}
+                    className="text-sm text-white/60 hover:text-[var(--orange)] transition-colors duration-300"
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/areas"
+                  className="text-sm text-[var(--orange)] hover:text-white transition-colors duration-300 font-medium"
+                >
+                  View All Areas &rarr;
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Info */}
+          <div>
+            <h4 className="text-lg font-bold mb-5 relative pb-3 after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-[var(--orange)] after:rounded-full">
+              Contact Info
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href={`tel:${SITE.phoneTel}`}
+                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors duration-300 group"
+                >
+                  <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-[var(--orange)]/20 transition-colors">
+                    <Phone className="w-4 h-4 text-[var(--orange)]" />
+                  </span>
+                  <span className="font-semibold text-white">{SITE.phone}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors duration-300 group"
+                >
+                  <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-[var(--orange)]/20 transition-colors">
+                    <Mail className="w-4 h-4 text-[var(--orange)]" />
+                  </span>
+                  {SITE.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-white/60">
+                <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-[var(--orange)]" />
                 </span>
-              </div>
-            </div>
+                {SITE.hours}
+              </li>
+              <li className="flex items-center gap-3 text-sm text-white/60">
+                <span className="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
+                  <MapPin className="w-4 h-4 text-[var(--orange)]" />
+                </span>
+                {SITE.address.full}
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-zinc-500">
-            &copy; {new Date().getFullYear()} {c.business_name}. All rights reserved.
+      {/* Bottom Bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-white/40">
+            &copy; 2026 {SITE.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 text-sm text-zinc-500">
-            <Link href="/privacy" className="hover:text-zinc-300 transition-colors">Privacy Policy</Link>
-            <span>|</span>
-            <Link href="/terms" className="hover:text-zinc-300 transition-colors">Terms</Link>
-            <span>|</span>
-            <Link href="/cookies" className="hover:text-zinc-300 transition-colors">Cookies</Link>
-            <span>|</span>
-            <span>{c.license}</span>
-            <span>|</span>
-            <span>Fully Insured</span>
+          <div className="flex items-center gap-6 text-sm text-white/40">
+            <Link
+              href="/privacy"
+              className="hover:text-white/80 transition-colors duration-300"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="hover:text-white/80 transition-colors duration-300"
+            >
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

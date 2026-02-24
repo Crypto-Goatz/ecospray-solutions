@@ -1,305 +1,159 @@
-"use client"
+import type { Metadata } from "next"
+import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import ScrollReveal from "@/components/scroll-reveal"
+import Breadcrumbs from "@/components/breadcrumbs"
+import LeadForm from "@/components/lead-form"
+import { SITE } from "@/lib/constants"
+import { AREAS } from "@/lib/areas-data"
+import { breadcrumbSchema } from "@/lib/schema"
 
-import { useState } from "react"
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card } from "@/components/ui/card"
-import Footer from "@/components/footer"
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: `Contact ${SITE.name} for a free spray foam insulation estimate in the Pittsburgh area. Call ${SITE.phone} or fill out our online form.`,
+  openGraph: {
+    title: `Contact Us | ${SITE.name}`,
+    description: `Get in touch with ${SITE.name} for a free spray foam insulation estimate. Serving the greater Pittsburgh area.`,
+    url: `${SITE.url}/contact`,
+    siteName: SITE.name,
+    locale: "en_US",
+    type: "website",
+  },
+  alternates: { canonical: `${SITE.url}/contact` },
+}
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMsg, setErrorMsg] = useState('')
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    propertyType: 'residential',
-    squareFootage: '',
-    message: '',
-  })
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setFormState('loading')
-    setErrorMsg('')
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
-        throw new Error(data.error || 'Something went wrong')
-      }
-
-      setFormState('success')
-    } catch (err) {
-      // Fallback: still show success to user (form data could be emailed/logged)
-      console.error('Contact form error:', err)
-      setFormState('success')
-    }
-  }
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: SITE.url },
+    { name: "Contact", url: `${SITE.url}/contact` },
+  ])
 
   return (
-    <div className="min-h-screen bg-zinc-950">
-      {/* Hero Section */}
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Get Your{" "}
-              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-                Free Quote
-              </span>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+
+      {/* Hero */}
+      <section className="hero-gradient pt-28 pb-16 md:pt-36 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
+          <Breadcrumbs items={[{ label: "Contact" }]} />
+          <div className="mt-8 max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+              Get in <span className="gradient-text">Touch</span>
             </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Fill out the form below and we&apos;ll get back to you within 24 hours with a detailed estimate.
+            <p className="text-lg text-white/70">
+              Ready for your free estimate? Fill out the form or give us a call. We respond
+              to every inquiry within 24 hours.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <Card className="p-6 bg-zinc-900/50 border-zinc-800">
-                <h3 className="font-bold text-white mb-4">Contact Information</h3>
-                <div className="space-y-4">
-                  <a
-                    href="tel:+17248192727"
-                    className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">Phone</div>
-                      <div className="text-white">(724) 819-2727</div>
-                    </div>
-                  </a>
-                  <a
-                    href="mailto:hello@ecospraysolutions.com"
-                    className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">Email</div>
-                      <div className="text-white">hello@ecospraysolutions.com</div>
-                    </div>
-                  </a>
-                  <div className="flex items-center gap-3 text-zinc-400">
-                    <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">Location</div>
-                      <div className="text-white">Murrysville, PA</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 text-zinc-400">
-                    <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">Hours</div>
-                      <div className="text-white">Mon-Fri: 8am-6pm</div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
+      {/* Two-Column Layout */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <ScrollReveal>
+            <div className="grid lg:grid-cols-5 gap-12">
+              {/* Left - Lead Form */}
+              <div className="lg:col-span-3">
+                <LeadForm />
+              </div>
 
-              <Card className="p-6 bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20">
-                <h3 className="font-bold text-white mb-3">Service Area</h3>
-                <p className="text-sm text-zinc-400 mb-4">
-                  We proudly serve the greater Pittsburgh area including:
-                </p>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  {[
-                    "Murrysville",
-                    "Pittsburgh",
-                    "Monroeville",
-                    "Export",
-                    "Greensburg",
-                    "Irwin",
-                    "North Huntingdon",
-                    "Delmont",
-                  ].map((area) => (
-                    <div key={area} className="flex items-center gap-1 text-zinc-300">
-                      <CheckCircle2 className="w-3 h-3 text-green-400" />
-                      {area}
+              {/* Right - Contact Info */}
+              <div className="lg:col-span-2 space-y-6">
+                {/* Phone */}
+                <div className="card">
+                  <a
+                    href={`tel:${SITE.phoneTel}`}
+                    className="flex items-start gap-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-[var(--orange)]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--orange)]/20 transition-colors">
+                      <Phone className="w-6 h-6 text-[var(--orange)]" />
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="font-semibold text-[var(--slate-900)]">Phone</h3>
+                      <p className="text-[var(--blue)] font-medium text-lg">
+                        {SITE.phone}
+                      </p>
+                      <p className="text-sm text-[var(--slate-500)] mt-1">
+                        Call or text for fastest response
+                      </p>
+                    </div>
+                  </a>
                 </div>
-              </Card>
+
+                {/* Email */}
+                <div className="card">
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="flex items-start gap-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-[var(--blue)]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--blue)]/20 transition-colors">
+                      <Mail className="w-6 h-6 text-[var(--blue)]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--slate-900)]">Email</h3>
+                      <p className="text-[var(--blue)] font-medium">
+                        {SITE.email}
+                      </p>
+                      <p className="text-sm text-[var(--slate-500)] mt-1">
+                        We reply within 24 hours
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Hours */}
+                <div className="card">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-[var(--green)]/10 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-[var(--green)]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--slate-900)]">Business Hours</h3>
+                      <p className="text-[var(--slate-700)]">{SITE.hours}</p>
+                      <p className="text-sm text-[var(--slate-500)] mt-1">
+                        Emergency services available
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Service Area */}
+                <div className="card">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-[var(--orange)]/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-[var(--orange)]" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--slate-900)] mb-2">
+                        Service Area
+                      </h3>
+                      <p className="text-sm text-[var(--slate-500)] mb-3">
+                        Serving the greater Pittsburgh area including:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {AREAS.slice(0, 8).map((area) => (
+                          <span
+                            key={area.slug}
+                            className="text-xs px-2 py-1 rounded-full bg-[var(--slate-100)] text-[var(--slate-700)]"
+                          >
+                            {area.name}
+                          </span>
+                        ))}
+                        <span className="text-xs px-2 py-1 rounded-full bg-[var(--orange)]/10 text-[var(--orange)] font-medium">
+                          + {AREAS.length - 8} more
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            {/* Contact Form */}
-            <Card className="lg:col-span-2 p-6 md:p-8 bg-zinc-900/50 border-zinc-800">
-              {formState === 'success' ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-8 h-8 text-green-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Quote Request Received!</h3>
-                  <p className="text-zinc-400 mb-6">
-                    Thank you for your interest. We&apos;ll be in touch within 24 hours.
-                  </p>
-                  <Button
-                    onClick={() => {
-                      setFormState('idle')
-                      setFormData({
-                        name: '',
-                        email: '',
-                        phone: '',
-                        propertyType: 'residential',
-                        squareFootage: '',
-                        message: '',
-                      })
-                    }}
-                    variant="outline"
-                    className="border-zinc-700"
-                  >
-                    Submit Another Request
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <h3 className="text-xl font-bold text-white mb-6">Request a Free Quote</h3>
-
-                  {errorMsg && (
-                    <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-                      {errorMsg}
-                    </div>
-                  )}
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-zinc-300">Full Name *</Label>
-                      <Input
-                        id="name"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-zinc-800 border-zinc-700 text-white"
-                        placeholder="John Smith"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-zinc-300">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-zinc-800 border-zinc-700 text-white"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-zinc-300">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        required
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="bg-zinc-800 border-zinc-700 text-white"
-                        placeholder="(412) 555-1234"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="squareFootage" className="text-zinc-300">Approx. Square Footage</Label>
-                      <Input
-                        id="squareFootage"
-                        value={formData.squareFootage}
-                        onChange={(e) => setFormData({ ...formData, squareFootage: e.target.value })}
-                        className="bg-zinc-800 border-zinc-700 text-white"
-                        placeholder="e.g., 2,500"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label className="text-zinc-300">Property Type *</Label>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      {[
-                        { value: 'residential', label: 'Residential' },
-                        { value: 'commercial', label: 'Commercial' },
-                        { value: 'new-construction', label: 'New Build' },
-                        { value: 'other', label: 'Other' },
-                      ].map((option) => (
-                        <button
-                          key={option.value}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, propertyType: option.value })}
-                          className={`px-4 py-2 rounded-lg border text-sm transition-all ${
-                            formData.propertyType === option.value
-                              ? 'bg-green-500/20 border-green-500 text-green-400'
-                              : 'bg-zinc-800 border-zinc-700 text-zinc-400 hover:border-zinc-600'
-                          }`}
-                        >
-                          {option.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-zinc-300">Tell us about your project</Label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                      placeholder="What areas need insulation? Any specific concerns or goals?"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={formState === 'loading'}
-                    className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white group"
-                  >
-                    {formState === 'loading' ? (
-                      <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Get My Free Quote
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </Button>
-
-                  <p className="text-xs text-zinc-500 text-center">
-                    By submitting this form, you agree to be contacted about your project.
-                    We respect your privacy and will never share your information.
-                  </p>
-                </form>
-              )}
-            </Card>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </>
   )
 }

@@ -1,47 +1,49 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import Navbar from "@/components/navbar"
-import { ComplianceWrapper } from "@/components/compliance-wrapper"
-import { getLocalBusinessSchema, getWebSiteSchema } from "@/lib/schema-markup"
+import Footer from "@/components/footer"
+import StickyCta from "@/components/sticky-cta"
+import { SITE } from "@/lib/constants"
+import { localBusinessSchema } from "@/lib/schema"
 
-const inter = Inter({ subsets: ["latin"] })
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0c1b2e",
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ecospraysolutions.com'),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "EcoSpray Solutions | Spray Foam Insulation Pittsburgh PA",
-    template: "%s | EcoSpray Solutions",
+    default: "Pittsburgh Spray Foam Insulation Experts | NearPittsburgh Spray Foam",
+    template: "%s | NearPittsburgh Spray Foam",
   },
-  description: "Pittsburgh's trusted spray foam insulation experts. Save up to 50% on energy bills with professional residential and commercial insulation services in Murrysville, PA and surrounding areas.",
-  keywords: ["spray foam insulation", "Pittsburgh insulation", "Murrysville PA", "energy savings", "residential insulation", "commercial insulation", "spray foam contractor", "insulation company Pittsburgh"],
-  authors: [{ name: "EcoSpray Solutions" }],
-  creator: "EcoSpray Solutions",
-  publisher: "EcoSpray Solutions",
+  description: SITE.description,
+  keywords: [
+    "spray foam insulation Pittsburgh",
+    "Pittsburgh insulation contractor",
+    "spray foam insulation near me",
+    "residential insulation Pittsburgh PA",
+    "commercial insulation Pittsburgh",
+    "crawl space insulation Pittsburgh",
+    "attic insulation Pittsburgh",
+    "NearPittsburgh Spray Foam",
+  ],
+  authors: [{ name: SITE.name }],
+  creator: SITE.name,
+  publisher: SITE.name,
   openGraph: {
-    title: "EcoSpray Solutions | Spray Foam Insulation Pittsburgh",
-    description: "Save up to 50% on energy bills with professional spray foam insulation services.",
-    url: "https://ecospraysolutions.com",
-    siteName: "EcoSpray Solutions",
+    title: "Pittsburgh Spray Foam Insulation Experts | NearPittsburgh Spray Foam",
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/images/logos/banner-worker.png",
-        width: 1200,
-        height: 630,
-        alt: "EcoSpray Solutions - Professional Spray Foam Insulation",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EcoSpray Solutions | Spray Foam Insulation Pittsburgh",
-    description: "Save up to 50% on energy bills with professional spray foam insulation.",
-    images: ["/images/logos/banner-worker.png"],
-  },
-  alternates: {
-    canonical: "https://ecospraysolutions.com",
+    title: "Pittsburgh Spray Foam Insulation Experts | NearPittsburgh Spray Foam",
+    description: SITE.description,
   },
   robots: {
     index: true,
@@ -54,6 +56,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: SITE.url,
+  },
 }
 
 export default function RootLayout({
@@ -61,46 +66,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const cro9Key = process.env.NEXT_PUBLIC_CRO9_KEY
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
-  const localBusiness = getLocalBusinessSchema()
-  const webSite = getWebSiteSchema()
-
   return (
     <html lang="en">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema()),
+          }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite) }}
-        />
-        {gaId && (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{page_path:window.location.pathname});`,
-              }}
-            />
-          </>
-        )}
       </head>
-      <body className={inter.className}>
-        <ComplianceWrapper>
-          <Navbar />
-          <main>{children}</main>
-        </ComplianceWrapper>
-        {cro9Key && (
-          <script
-            src="/cro9-tracker.js"
-            data-key={cro9Key}
-            data-consent-mode="essential"
-            defer
-          />
-        )}
+      <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--orange)] focus:text-white focus:rounded-lg focus:outline-none"
+        >
+          Skip to main content
+        </a>
+        <Navbar />
+        <main id="main-content">{children}</main>
+        <Footer />
+        <StickyCta />
       </body>
     </html>
   )

@@ -1,124 +1,176 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X, Phone, BookOpen } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { SITE } from "@/lib/constants";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Process", href: "/process" },
-  { name: "Reviews", href: "/testimonials" },
-  { name: "Contact", href: "/contact" },
-]
+const NAV_LINKS = [
+  { label: "Services", href: "/#services" },
+  { label: "Areas", href: "/#areas" },
+  { label: "Process", href: "/#process" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
+];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-white/95 shadow-lg shadow-black/5 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" fill className="object-contain" />
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-bold text-white text-lg">EcoSpray</span>
-              <span className="text-green-400 text-sm ml-1">Solutions</span>
-            </div>
+          <Link href="/" className="flex flex-col leading-none group">
+            <span className="flex items-center gap-1">
+              <span
+                className="w-1 h-6 rounded-full bg-[var(--orange)] transition-all duration-300 group-hover:h-7"
+              />
+              <span
+                className={`text-xl font-extrabold tracking-tight transition-colors duration-500 ${
+                  scrolled ? "text-[var(--navy)]" : "text-white"
+                }`}
+              >
+                SPRAY FOAM
+              </span>
+            </span>
+            <span
+              className={`text-[11px] font-medium tracking-widest uppercase ml-3 transition-colors duration-500 ${
+                scrolled ? "text-[var(--slate-500)]" : "text-white/60"
+              }`}
+            >
+              near pittsburgh
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+          {/* Desktop Nav Links */}
+          <div className="hidden lg:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
               <Link
-                key={link.name}
+                key={link.label}
                 href={link.href}
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
+                className={`text-sm font-medium transition-all duration-300 hover:text-[var(--orange)] relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-[var(--orange)] after:rounded-full after:transition-all after:duration-300 hover:after:w-full ${
+                  scrolled ? "text-[var(--slate-700)]" : "text-white/80"
+                }`}
               >
-                {link.name}
+                {link.label}
               </Link>
             ))}
-            <Link
-              href="/free-guide"
-              className="flex items-center gap-1.5 text-sm text-green-400 hover:text-green-300 transition-colors font-medium"
+          </div>
+
+          {/* Right Side: Phone + CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <a
+              href={`tel:${SITE.phoneTel}`}
+              className={`flex items-center gap-2 text-sm font-semibold transition-colors duration-500 hover:text-[var(--orange)] ${
+                scrolled ? "text-[var(--navy)]" : "text-white"
+              }`}
             >
-              <BookOpen className="w-4 h-4" />
-              Free Guide
+              <Phone className="w-4 h-4" />
+              {SITE.phone}
+            </a>
+            <Link href="/free-estimate" className="btn-primary !py-3 !px-6 !text-sm">
+              Free Estimate
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="tel:+17248192727"
-              className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              (724) 819-2727
-            </a>
-            <Button
-              asChild
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white"
-            >
-              <Link href="/contact">Get Free Quote</Link>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
+          {/* Mobile Hamburger */}
           <button
-            className="md:hidden p-2 text-zinc-400 hover:text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className={`lg:hidden relative z-50 p-2 rounded-lg transition-colors ${
+              mobileOpen
+                ? "text-white"
+                : scrolled
+                  ? "text-[var(--navy)]"
+                  : "text-white"
+            }`}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-zinc-800">
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
+      {/* Mobile Menu Panel */}
+      <div
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          onClick={() => setMobileOpen(false)}
+        />
+
+        {/* Panel */}
+        <div
+          className={`absolute top-0 left-0 right-0 bg-[var(--navy)] transition-transform duration-500 ease-out ${
+            mobileOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <div className="pt-24 pb-8 px-6">
+            <div className="flex flex-col gap-2">
+              {NAV_LINKS.map((link) => (
                 <Link
-                  key={link.name}
+                  key={link.label}
                   href={link.href}
-                  className="text-zinc-400 hover:text-white transition-colors px-2 py-1"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-lg font-medium text-white/80 hover:text-[var(--orange)] py-3 border-b border-white/10 transition-colors"
                 >
-                  {link.name}
+                  {link.label}
                 </Link>
               ))}
-              <Link
-                href="/free-guide"
-                className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors px-2 py-1 font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <BookOpen className="w-4 h-4" />
-                Free Guide
-              </Link>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-4">
               <a
-                href="tel:+17248192727"
-                className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors px-2 py-1"
+                href={`tel:${SITE.phoneTel}`}
+                className="flex items-center justify-center gap-2 text-white font-semibold text-lg"
               >
-                <Phone className="w-4 h-4" />
-                (724) 819-2727
+                <Phone className="w-5 h-5 text-[var(--orange)]" />
+                {SITE.phone}
               </a>
-              <Button
-                asChild
-                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white mt-2"
+              <Link
+                href="/free-estimate"
+                onClick={() => setMobileOpen(false)}
+                className="btn-primary justify-center"
               >
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Get Free Quote</Link>
-              </Button>
+                Get Your Free Estimate
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      </div>
     </header>
-  )
+  );
 }
