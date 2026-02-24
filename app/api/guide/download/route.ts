@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     const firstName = nameParts[0] || ''
     const lastName = nameParts.slice(1).join(' ') || ''
 
-    const tags: string[] = ['lead', 'guide-download', 'ecospray-website']
+    const tags: string[] = ['lead', 'guide-download', 'spray-foam-website']
     if (propertyType) tags.push(propertyType)
 
     const contactRow: Record<string, string> = {
@@ -104,7 +104,7 @@ export async function POST(req: NextRequest) {
           lastName,
           email: email.trim().toLowerCase(),
           phone: (phone || '').trim(),
-          tags: ['ecospray-website', 'guide-download', propertyType].filter(Boolean) as string[],
+          tags: ['spray-foam-website', 'guide-download', propertyType].filter(Boolean) as string[],
           customFields: branding,
         })
       } catch (e) {

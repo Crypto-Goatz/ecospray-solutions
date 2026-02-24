@@ -86,7 +86,7 @@ export default function ContactPage() {
                     </div>
                   </a>
                   <a
-                    href="mailto:hello@ecospraysolutions.com"
+                    href="mailto:hello@"
                     className="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
                   >
                     <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-sm text-zinc-500">Email</div>
-                      <div className="text-white">hello@ecospraysolutions.com</div>
+                      <div className="text-white">hello@</div>
                     </div>
                   </a>
                   <div className="flex items-center gap-3 text-zinc-400">

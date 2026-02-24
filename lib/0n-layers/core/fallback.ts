@@ -1,15 +1,14 @@
 /**
- * Layer 0: CORE — Fallback content with EcoSpray's ACTUAL hardcoded data.
+ * Layer 0: CORE — Fallback content with hardcoded data.
  * Serves as the CMS "designed around the existing site" pattern.
- * Data extracted from hero.tsx, services.tsx, testimonials.tsx, footer.tsx.
  */
 
 export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
   site_config: [
-    { key: 'business_name', value: 'EcoSpray Solutions' },
+    { key: 'business_name', value: 'Spray Foam Solutions' },
     { key: 'tagline', value: "Pittsburgh's Spray Foam Experts" },
     { key: 'primary_color', value: '#22c55e' },
-    { key: 'contact_email', value: 'info@ecospraysolutions.com' },
+    { key: 'contact_email', value: '' },
     { key: 'contact_phone', value: '(412) 555-1234' },
     { key: 'address', value: 'Murrysville, PA — Serving Pittsburgh & Western PA' },
     { key: 'social_facebook', value: '' },
@@ -22,7 +21,7 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
     { key: 'setup_complete', value: 'false' },
   ],
 
-  // -- EcoSpray Stats (from hero.tsx) --
+  // -- Spray Foam Stats (from hero.tsx) --
   stats: [
     { id: '1', value: '500+', label: 'Projects Completed', order: '1' },
     { id: '2', value: '50%', label: 'Avg. Energy Savings', order: '2' },
@@ -30,7 +29,7 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
     { id: '4', value: '10+', label: 'Years Experience', order: '4' },
   ],
 
-  // -- EcoSpray Services (from services.tsx) --
+  // -- Spray Foam Services (from services.tsx) --
   services: [
     {
       id: '1',
@@ -74,13 +73,13 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
     },
   ],
 
-  // -- EcoSpray Testimonials (from testimonials.tsx) --
+  // -- Spray Foam Testimonials (from testimonials.tsx) --
   testimonials: [
     {
       id: '1',
       name: 'Mike & Sarah Johnson',
       role: 'Homeowners',
-      content: 'Our heating bills dropped by 40% after EcoSpray insulated our attic. The crew was professional, clean, and finished in one day. Highly recommend!',
+      content: 'Our heating bills dropped by 40% after Spray Foam insulated our attic. The crew was professional, clean, and finished in one day. Highly recommend!',
       rating: '5',
       project: 'Attic Insulation',
       location: 'Murrysville, PA',
@@ -102,7 +101,7 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
       id: '3',
       name: 'Jennifer Martinez',
       role: 'Homeowner',
-      content: 'We had terrible drafts in our 1920s home. EcoSpray sealed everything up and now our home is comfortable year-round. The difference is incredible.',
+      content: 'We had terrible drafts in our 1920s home. Spray Foam sealed everything up and now our home is comfortable year-round. The difference is incredible.',
       rating: '5',
       project: 'Whole Home Retrofit',
       location: 'Monroeville, PA',
@@ -118,7 +117,7 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
       title: 'Home',
       slug: 'home',
       content: '<h1>Pittsburgh\'s Spray Foam Experts</h1><p>Professional insulation for homes and businesses. Lower energy costs, improved comfort, and lasting protection for the greater Pittsburgh area.</p>',
-      meta_description: "EcoSpray Solutions — Pittsburgh's trusted spray foam insulation experts. Save up to 50% on energy bills.",
+      meta_description: "Spray Foam Solutions — Pittsburgh's trusted spray foam insulation experts. Save up to 50% on energy bills.",
       status: 'published',
       updated_at: new Date().toISOString(),
     },
@@ -126,8 +125,8 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
       id: '2',
       title: 'About',
       slug: 'about',
-      content: '<h1>About EcoSpray Solutions</h1><p>With over 10 years of experience and 500+ completed projects, we are Pittsburgh\'s trusted spray foam insulation experts. Licensed, insured, and Energy Star certified.</p>',
-      meta_description: 'Learn about EcoSpray Solutions — 10+ years serving Pittsburgh and Western PA.',
+      content: '<h1>About Spray Foam Solutions</h1><p>With over 10 years of experience and 500+ completed projects, we are Pittsburgh\'s trusted spray foam insulation experts. Licensed, insured, and Energy Star certified.</p>',
+      meta_description: 'Learn about Spray Foam Solutions — 10+ years serving Pittsburgh and Western PA.',
       status: 'published',
       updated_at: new Date().toISOString(),
     },
@@ -136,7 +135,7 @@ export const FALLBACK_DATA: Record<string, Record<string, string>[]> = {
       title: 'Contact',
       slug: 'contact',
       content: '<h1>Get Your Free Quote</h1><p>Fill out the form below and we\'ll get back to you within 24 hours with a detailed estimate.</p>',
-      meta_description: 'Contact EcoSpray Solutions for a free spray foam insulation quote in Pittsburgh and Western PA.',
+      meta_description: 'Contact Spray Foam Solutions for a free spray foam insulation quote in Pittsburgh and Western PA.',
       status: 'published',
       updated_at: new Date().toISOString(),
     },

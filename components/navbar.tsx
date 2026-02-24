@@ -25,10 +25,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" fill className="object-contain" />
+              <Image src="/images/logos/icon.png" alt="Spray Foam Solutions" fill className="object-contain" />
             </div>
             <div className="hidden sm:block">
-              <span className="font-bold text-white text-lg">EcoSpray</span>
+              <span className="font-bold text-white text-lg">Spray Foam</span>
               <span className="text-green-400 text-sm ml-1">Solutions</span>
             </div>
           </Link>

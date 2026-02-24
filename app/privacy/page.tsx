@@ -1,8 +1,8 @@
 import Footer from "@/components/footer"
 
 export const metadata = {
-  title: "Privacy Policy | EcoSpray Solutions",
-  description: "Privacy policy for EcoSpray Solutions spray foam insulation services.",
+  title: "Privacy Policy | Spray Foam Solutions",
+  description: "Privacy policy for Spray Foam Solutions spray foam insulation services.",
 }
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
             <p className="text-zinc-400 text-sm">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
 
             <h2 className="text-xl font-semibold text-white mt-8">1. Information We Collect</h2>
-            <p>EcoSpray Solutions (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) collects the following information when you interact with our website:</p>
+            <p>Spray Foam Solutions (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) collects the following information when you interact with our website:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong className="text-white">Contact Information:</strong> Name, email address, phone number when you submit our contact form.</li>
               <li><strong className="text-white">Project Details:</strong> Property type, square footage, and project descriptions you provide.</li>
@@ -59,8 +59,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-white mt-8">7. Contact Us</h2>
             <p>For privacy-related questions, contact us at:</p>
             <p>
-              <strong className="text-white">EcoSpray Solutions</strong><br />
-              Email: <a href="mailto:info@ecospraysolutions.com" className="text-green-400 hover:text-green-300">info@ecospraysolutions.com</a><br />
+              <strong className="text-white">Spray Foam Solutions</strong><br />
+              Email: <a href="mailto:info@" className="text-green-400 hover:text-green-300">info@</a><br />
               Phone: <a href="tel:+14125551234" className="text-green-400 hover:text-green-300">(412) 555-1234</a><br />
               Murrysville, PA
             </p>

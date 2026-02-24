@@ -185,7 +185,7 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-        <p className="text-sm text-zinc-400 mt-1">EcoSpray Solutions Admin</p>
+        <p className="text-sm text-zinc-400 mt-1">Spray Foam Solutions Admin</p>
       </div>
 
       {/* Configuration Banner */}

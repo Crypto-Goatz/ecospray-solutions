@@ -6,7 +6,7 @@ import { ArrowRight, Play, Zap, Shield, Award, Phone, ChevronDown } from "lucide
 import { Button } from "@/components/ui/button"
 
 const DEFAULT_CONFIG: Record<string, string> = {
-  business_name: 'EcoSpray Solutions',
+  business_name: 'Spray Foam Solutions',
   headline_1: "Pittsburgh's",
   headline_2: 'Spray Foam',
   headline_3: 'Experts',

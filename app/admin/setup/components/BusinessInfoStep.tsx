@@ -40,9 +40,9 @@ const INDUSTRIES = [
 
 export function BusinessInfoStep({ initial, onComplete }: Props) {
   const [form, setForm] = useState<BusinessInfo>({
-    name: initial.name || "EcoSpray Solutions",
+    name: initial.name || "Spray Foam Solutions",
     phone: initial.phone || "(412) 555-1234",
-    email: initial.email || "info@ecospraysolutions.com",
+    email: initial.email || "info@",
     url: initial.url || "",
     tagline: initial.tagline || "",
     industry: initial.industry || "Insulation & Spray Foam",
@@ -78,7 +78,7 @@ export function BusinessInfoStep({ initial, onComplete }: Props) {
           className={inputClass}
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          placeholder="EcoSpray Solutions"
+          placeholder="Spray Foam Solutions"
         />
         {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
       </div>
@@ -101,7 +101,7 @@ export function BusinessInfoStep({ initial, onComplete }: Props) {
             className={inputClass}
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="info@ecospraysolutions.com"
+            placeholder="info@"
           />
           {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
         </div>
@@ -113,7 +113,7 @@ export function BusinessInfoStep({ initial, onComplete }: Props) {
           className={inputClass}
           value={form.url}
           onChange={(e) => setForm({ ...form, url: e.target.value })}
-          placeholder="https://ecospraysolutions.com"
+          placeholder="https://"
         />
       </div>
 

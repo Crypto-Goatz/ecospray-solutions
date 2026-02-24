@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'ecospraysolutions.com',
+        hostname: 'rocketopp.com',
       },
       {
         protocol: 'https',

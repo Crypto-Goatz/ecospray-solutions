@@ -1,4 +1,4 @@
-// EcoSpray Solutions — Project Constants
+// Project Constants
 
 export const TABLE_PREFIX = 'ecospray_'
 
@@ -13,9 +13,9 @@ export function requiredEnv(key: string): string {
 }
 
 export const SITE_CONFIG = {
-  name: env('NEXT_PUBLIC_SITE_NAME', 'EcoSpray Solutions'),
-  phone: env('NEXT_PUBLIC_SITE_PHONE', '(412) 555-1234'),
-  email: env('NEXT_PUBLIC_SITE_EMAIL', 'info@ecospraysolutions.com'),
-  domain: 'ecospraysolutions.com',
-  location: 'Murrysville, PA',
+  name: env('NEXT_PUBLIC_SITE_NAME', 'Spray Foam Solutions'),
+  phone: env('NEXT_PUBLIC_SITE_PHONE', ''),
+  email: env('NEXT_PUBLIC_SITE_EMAIL', ''),
+  domain: '',
+  location: '',
 }

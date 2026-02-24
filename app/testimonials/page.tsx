@@ -11,12 +11,12 @@ import { getBreadcrumbSchema, getReviewSchema, getAggregateRatingSchema } from '
 /* ------------------------------------------------------------------ */
 
 export const metadata: Metadata = {
-  title: 'Customer Reviews & Testimonials | EcoSpray Solutions Pittsburgh',
+  title: 'Customer Reviews & Testimonials | Spray Foam Solutions Pittsburgh',
   description:
-    'Read 200+ five-star reviews from Pittsburgh homeowners. EcoSpray Solutions averages a 4.9/5 rating for spray foam insulation across Murrysville, Monroeville, Greensburg & Western PA. Real customer stories, real energy savings.',
+    'Read 200+ five-star reviews from Pittsburgh homeowners. Spray Foam Solutions averages a 4.9/5 rating for spray foam insulation across Murrysville, Monroeville, Greensburg & Western PA. Real customer stories, real energy savings.',
   keywords: [
     'spray foam insulation reviews Pittsburgh',
-    'EcoSpray Solutions reviews',
+    'Spray Foam Solutions reviews',
     'Pittsburgh insulation testimonials',
     'spray foam insulation Murrysville PA',
     'insulation contractor reviews Western PA',
@@ -25,22 +25,22 @@ export const metadata: Metadata = {
     'best insulation company Pittsburgh',
   ],
   openGraph: {
-    title: 'Customer Reviews & Testimonials | EcoSpray Solutions Pittsburgh',
+    title: 'Customer Reviews & Testimonials | Spray Foam Solutions Pittsburgh',
     description:
-      '200+ five-star reviews. 4.9/5 average rating. See why Pittsburgh homeowners trust EcoSpray Solutions for spray foam insulation.',
-    url: 'https://ecospraysolutions.com/testimonials',
-    siteName: 'EcoSpray Solutions',
+      '200+ five-star reviews. 4.9/5 average rating. See why Pittsburgh homeowners trust Spray Foam Solutions for spray foam insulation.',
+    url: 'https:///testimonials',
+    siteName: 'Spray Foam Solutions',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Customer Reviews & Testimonials | EcoSpray Solutions Pittsburgh',
+    title: 'Customer Reviews & Testimonials | Spray Foam Solutions Pittsburgh',
     description:
       '200+ five-star reviews. 4.9/5 average rating. Real stories from Pittsburgh homeowners saving up to 50% on energy bills.',
   },
   alternates: {
-    canonical: 'https://ecospraysolutions.com/testimonials',
+    canonical: 'https:///testimonials',
   },
 }
 
@@ -53,7 +53,7 @@ const FEATURED_REVIEWS = [
     name: 'Mike & Sarah Johnson',
     location: 'Murrysville, PA',
     rating: 5,
-    text: 'Our heating bills dropped by 40% after EcoSpray insulated our attic. The crew was professional, clean, and finished in one day. We were amazed at the temperature difference the very first night -- the upstairs bedrooms that used to be freezing are now perfectly comfortable. Highly recommend to every homeowner in the area!',
+    text: 'Our heating bills dropped by 40% after Spray Foam insulated our attic. The crew was professional, clean, and finished in one day. We were amazed at the temperature difference the very first night -- the upstairs bedrooms that used to be freezing are now perfectly comfortable. Highly recommend to every homeowner in the area!',
     project: 'Attic Insulation',
     date: '2025-09-12',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80',
@@ -63,7 +63,7 @@ const FEATURED_REVIEWS = [
     name: 'Tom Reynolds',
     location: 'Pittsburgh, PA',
     rating: 5,
-    text: 'As a commercial property owner, I was skeptical about the investment. After seeing the energy savings in my first quarter -- nearly 35% lower utility costs -- I had EcoSpray do all three of my buildings. Their team handled the scheduling around our tenants with zero disruption. Top-notch professionalism from start to finish.',
+    text: 'As a commercial property owner, I was skeptical about the investment. After seeing the energy savings in my first quarter -- nearly 35% lower utility costs -- I had Spray Foam do all three of my buildings. Their team handled the scheduling around our tenants with zero disruption. Top-notch professionalism from start to finish.',
     project: 'Commercial Buildings',
     date: '2025-07-22',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
@@ -73,7 +73,7 @@ const FEATURED_REVIEWS = [
     name: 'Jennifer Martinez',
     location: 'Monroeville, PA',
     rating: 5,
-    text: 'We had terrible drafts in our 1920s home. Every winter the second floor was unbearable and our furnace ran non-stop. EcoSpray sealed everything up -- walls, rim joists, attic -- and now our home is comfortable year-round. The difference is incredible. Our energy bills are down and the house stays at a consistent temperature for the first time ever.',
+    text: 'We had terrible drafts in our 1920s home. Every winter the second floor was unbearable and our furnace ran non-stop. Spray Foam sealed everything up -- walls, rim joists, attic -- and now our home is comfortable year-round. The difference is incredible. Our energy bills are down and the house stays at a consistent temperature for the first time ever.',
     project: 'Whole Home Retrofit',
     date: '2025-11-03',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
@@ -88,7 +88,7 @@ const MORE_REVIEWS = [
     rating: 5,
     project: 'Crawl Space',
     date: '2025-10-18',
-    text: 'Had a damp, musty crawl space for years. EcoSpray encapsulated the whole thing with closed-cell foam and it is bone dry now. No more moisture problems, no more musty smell upstairs. Worth every penny.',
+    text: 'Had a damp, musty crawl space for years. Spray Foam encapsulated the whole thing with closed-cell foam and it is bone dry now. No more moisture problems, no more musty smell upstairs. Worth every penny.',
   },
   {
     name: 'Lisa & David M.',
@@ -96,7 +96,7 @@ const MORE_REVIEWS = [
     rating: 5,
     project: 'New Construction',
     date: '2025-08-05',
-    text: 'Our builder recommended EcoSpray for our new home and we are so glad we went with spray foam over fiberglass. The house is incredibly quiet and our first winter heating bill was shockingly low.',
+    text: 'Our builder recommended Spray Foam for our new home and we are so glad we went with spray foam over fiberglass. The house is incredibly quiet and our first winter heating bill was shockingly low.',
   },
   {
     name: 'Amanda W.',
@@ -104,7 +104,7 @@ const MORE_REVIEWS = [
     rating: 5,
     project: 'Basement Insulation',
     date: '2025-06-14',
-    text: 'Our basement was always cold and damp. After EcoSpray insulated the walls and rim joists, it feels like a whole new room. We actually use it as a family room now. The crew was fast and left everything spotless.',
+    text: 'Our basement was always cold and damp. After Spray Foam insulated the walls and rim joists, it feels like a whole new room. We actually use it as a family room now. The crew was fast and left everything spotless.',
   },
   {
     name: 'James T.',
@@ -120,7 +120,7 @@ const MORE_REVIEWS = [
     rating: 5,
     project: 'Attic + Walls',
     date: '2025-05-20',
-    text: 'We had EcoSpray insulate both the attic and exterior walls of our split-level. Night-and-day difference in comfort. No more cold spots by the windows and the HVAC barely kicks on now. Fantastic work.',
+    text: 'We had Spray Foam insulate both the attic and exterior walls of our split-level. Night-and-day difference in comfort. No more cold spots by the windows and the HVAC barely kicks on now. Fantastic work.',
   },
   {
     name: 'Chris R.',
@@ -128,7 +128,7 @@ const MORE_REVIEWS = [
     rating: 5,
     project: 'Garage Insulation',
     date: '2025-09-30',
-    text: 'I use my garage as a workshop and it was unbearable in winter. EcoSpray foamed the walls and ceiling and now I can work out there comfortably year-round. Great team, great results.',
+    text: 'I use my garage as a workshop and it was unbearable in winter. Spray Foam foamed the walls and ceiling and now I can work out there comfortably year-round. Great team, great results.',
   },
 ]
 
@@ -153,8 +153,8 @@ const ALL_REVIEWS_FOR_SCHEMA = [
 
 export default function TestimonialsPage() {
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://ecospraysolutions.com' },
-    { name: 'Reviews', url: 'https://ecospraysolutions.com/testimonials' },
+    { name: 'Home', url: 'https://' },
+    { name: 'Reviews', url: 'https:///testimonials' },
   ]
 
   const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems)
@@ -197,12 +197,12 @@ export default function TestimonialsPage() {
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             What Pittsburgh Homeowners Say{' '}
-            <span className="block gradient-text">About EcoSpray</span>
+            <span className="block gradient-text">About Spray Foam</span>
           </h1>
 
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-10">
             Real stories from real customers across Murrysville, Pittsburgh, and Western PA.
-            See why hundreds of homeowners trust EcoSpray Solutions for their spray foam
+            See why hundreds of homeowners trust Spray Foam Solutions for their spray foam
             insulation needs.
           </p>
 
@@ -426,7 +426,7 @@ export default function TestimonialsPage() {
               Why Customers <span className="gradient-text">Love Us</span>
             </h2>
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-              Four reasons Pittsburgh homeowners keep recommending EcoSpray Solutions to
+              Four reasons Pittsburgh homeowners keep recommending Spray Foam Solutions to
               their neighbors, friends, and family.
             </p>
           </div>

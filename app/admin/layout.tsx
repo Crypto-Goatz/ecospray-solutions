@@ -38,7 +38,7 @@ export default function AdminLayout({
               <Leaf className="w-4 h-4 text-green-400" />
             </div>
             <div>
-              <span className="font-bold text-white text-sm">EcoSpray</span>
+              <span className="font-bold text-white text-sm">Spray Foam</span>
               <span className="text-green-400 text-xs ml-1">Admin</span>
             </div>
           </Link>

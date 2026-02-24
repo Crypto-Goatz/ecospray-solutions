@@ -10,7 +10,7 @@ import { getBreadcrumbSchema, getServiceSchema, getFAQSchema } from '@/lib/schem
 /* ─────────────────── Metadata ─────────────────── */
 
 export const metadata: Metadata = {
-  title: 'Spray Foam Insulation Services | EcoSpray Solutions Pittsburgh',
+  title: 'Spray Foam Insulation Services | Spray Foam Solutions Pittsburgh',
   description:
     'Professional residential, commercial, and new construction spray foam insulation services in Pittsburgh & Western PA. Free estimates. Save up to 50% on energy bills.',
   keywords: [
@@ -26,31 +26,31 @@ export const metadata: Metadata = {
     'basement insulation Murrysville PA',
   ],
   openGraph: {
-    title: 'Spray Foam Insulation Services | EcoSpray Solutions Pittsburgh',
+    title: 'Spray Foam Insulation Services | Spray Foam Solutions Pittsburgh',
     description:
       'Professional residential, commercial, and new construction spray foam insulation services in Pittsburgh & Western PA. Free estimates. Save up to 50% on energy bills.',
-    url: 'https://ecospraysolutions.com/services',
-    siteName: 'EcoSpray Solutions',
+    url: 'https:///services',
+    siteName: 'Spray Foam Solutions',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://ecospraysolutions.com/images/logos/banner-worker.png',
+        url: 'https:///images/logos/banner-worker.png',
         width: 1200,
         height: 630,
-        alt: 'EcoSpray Solutions Spray Foam Insulation Services in Pittsburgh',
+        alt: 'Spray Foam Solutions Spray Foam Insulation Services in Pittsburgh',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Spray Foam Insulation Services | EcoSpray Solutions Pittsburgh',
+    title: 'Spray Foam Insulation Services | Spray Foam Solutions Pittsburgh',
     description:
       'Professional residential, commercial, and new construction spray foam insulation services in Pittsburgh & Western PA. Free estimates.',
-    images: ['https://ecospraysolutions.com/images/logos/banner-worker.png'],
+    images: ['https:///images/logos/banner-worker.png'],
   },
   alternates: {
-    canonical: 'https://ecospraysolutions.com/services',
+    canonical: 'https:///services',
   },
 }
 
@@ -79,7 +79,7 @@ const services = [
     title: 'Commercial Insulation',
     slug: 'commercial-insulation',
     description:
-      'Cut operating costs and create a more productive work environment with commercial-grade spray foam insulation. From office towers in downtown Pittsburgh to warehouses along Route 30, EcoSpray Solutions delivers large-scale insulation projects on time and on budget. Closed-cell spray foam provides a continuous air and moisture barrier that meets the strictest ASHRAE and IECC energy code requirements, reducing HVAC load and extending the life of your mechanical systems.',
+      'Cut operating costs and create a more productive work environment with commercial-grade spray foam insulation. From office towers in downtown Pittsburgh to warehouses along Route 30, Spray Foam Solutions delivers large-scale insulation projects on time and on budget. Closed-cell spray foam provides a continuous air and moisture barrier that meets the strictest ASHRAE and IECC energy code requirements, reducing HVAC load and extending the life of your mechanical systems.',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
     color: 'from-blue-500 to-cyan-600',
     features: [
@@ -96,7 +96,7 @@ const services = [
     title: 'New Construction',
     slug: 'new-construction',
     description:
-      'Partner with the builders and general contractors who trust EcoSpray for new-build insulation throughout the Pittsburgh metro. We work with your construction schedule, coordinate with framing and mechanical trades, and ensure every new home or commercial building exceeds Pennsylvania energy code requirements from day one. Our builder programs include volume pricing, priority scheduling, and RESNET-ready documentation for HERS index scoring.',
+      'Partner with the builders and general contractors who trust Spray Foam for new-build insulation throughout the Pittsburgh metro. We work with your construction schedule, coordinate with framing and mechanical trades, and ensure every new home or commercial building exceeds Pennsylvania energy code requirements from day one. Our builder programs include volume pricing, priority scheduling, and RESNET-ready documentation for HERS index scoring.',
     image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
     color: 'from-orange-500 to-amber-600',
     features: [
@@ -169,7 +169,7 @@ const faqs = [
   {
     question: 'How much does spray foam insulation cost in Pittsburgh?',
     answer:
-      'Spray foam insulation costs in the Pittsburgh area typically range from $1.00 to $2.50 per board foot for open-cell foam and $1.50 to $3.50 per board foot for closed-cell foam. A typical residential project such as a full attic spray in a 1,500 square foot home might cost between $3,500 and $9,000 depending on accessibility, foam type, and thickness required. Rim joist projects often start around $1,200. EcoSpray Solutions provides free, detailed estimates for every project so there are no surprises.',
+      'Spray foam insulation costs in the Pittsburgh area typically range from $1.00 to $2.50 per board foot for open-cell foam and $1.50 to $3.50 per board foot for closed-cell foam. A typical residential project such as a full attic spray in a 1,500 square foot home might cost between $3,500 and $9,000 depending on accessibility, foam type, and thickness required. Rim joist projects often start around $1,200. Spray Foam Solutions provides free, detailed estimates for every project so there are no surprises.',
   },
   {
     question: 'Is spray foam insulation worth the investment compared to fiberglass?',
@@ -187,17 +187,17 @@ const faqs = [
       'Absolutely. Open-cell spray foam in particular is an excellent sound dampener because of its soft, flexible structure that absorbs sound waves. Homeowners in noisy areas near Pittsburgh International Airport, busy Route 22 and Route 30 corridors, or dense city neighborhoods notice a significant reduction in outside noise after spray foam installation. It is also effective for reducing sound transfer between floors and rooms within a building.',
   },
   {
-    question: 'What areas in Pittsburgh does EcoSpray Solutions serve?',
+    question: 'What areas in Pittsburgh does Spray Foam Solutions serve?',
     answer:
-      'EcoSpray Solutions is headquartered in Murrysville, PA, and serves the entire greater Pittsburgh region. Our primary service area includes Pittsburgh, Murrysville, Monroeville, Export, Greensburg, Irwin, North Huntingdon, Delmont, Latrobe, Jeannette, Penn Township, Plum, Penn Hills, Trafford, Harrison City, and all communities throughout Allegheny County, Westmoreland County, and the surrounding Western Pennsylvania area. We provide free estimates anywhere within our service territory.',
+      'Spray Foam Solutions is headquartered in Murrysville, PA, and serves the entire greater Pittsburgh region. Our primary service area includes Pittsburgh, Murrysville, Monroeville, Export, Greensburg, Irwin, North Huntingdon, Delmont, Latrobe, Jeannette, Penn Township, Plum, Penn Hills, Trafford, Harrison City, and all communities throughout Allegheny County, Westmoreland County, and the surrounding Western Pennsylvania area. We provide free estimates anywhere within our service territory.',
   },
 ]
 
 /* ─────────────────── Structured Data ─────────────────── */
 
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Home', url: 'https://ecospraysolutions.com' },
-  { name: 'Services', url: 'https://ecospraysolutions.com/services' },
+  { name: 'Home', url: 'https://' },
+  { name: 'Services', url: 'https:///services' },
 ])
 
 const serviceSchemas = services.map((s) =>
@@ -205,7 +205,7 @@ const serviceSchemas = services.map((s) =>
     name: s.title,
     description: s.description,
     image: s.image,
-    url: `https://ecospraysolutions.com/services#${s.slug}`,
+    url: `https:///services#${s.slug}`,
   })
 )
 
@@ -258,7 +258,7 @@ export default function ServicesPage() {
 
             <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-8 leading-relaxed">
               From cozy Murrysville homes to large-scale commercial buildings across Western Pennsylvania,
-              EcoSpray Solutions delivers superior spray foam insulation that cuts energy costs by up to 50%,
+              Spray Foam Solutions delivers superior spray foam insulation that cuts energy costs by up to 50%,
               eliminates drafts, and transforms the comfort of your property. Every project starts with a
               free on-site estimate.
             </p>
@@ -322,7 +322,7 @@ export default function ServicesPage() {
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src={service.image}
-                      alt={`${service.title} in Pittsburgh PA - EcoSpray Solutions`}
+                      alt={`${service.title} in Pittsburgh PA - Spray Foam Solutions`}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -374,22 +374,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ═══════════ WHY CHOOSE ECOSPRAY ═══════════ */}
+      {/* ═══════════ WHY CHOOSE US ═══════════ */}
       <section className="py-20 lg:py-28 relative bg-zinc-900/30 border-y border-zinc-800">
         <div className="absolute inset-0 pattern-grid opacity-20" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm text-green-400 font-semibold tracking-widest uppercase mb-4 block">
-              The EcoSpray Difference
+              The Spray Foam Difference
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
               Why Pittsburgh Homeowners{' '}
-              <span className="gradient-text">Choose EcoSpray</span>
+              <span className="gradient-text">Choose Spray Foam</span>
             </h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">
               When you trust someone with your home or business, experience and integrity matter.
-              Here is what sets EcoSpray Solutions apart from every other insulation contractor in
+              Here is what sets Spray Foam Solutions apart from every other insulation contractor in
               Western Pennsylvania.
             </p>
           </div>
@@ -519,7 +519,7 @@ export default function ServicesPage() {
       {/* ═══════════ CTA SECTION ═══════════ */}
       <SectionCta
         title="Ready to Lower Your Energy Bills?"
-        subtitle="Schedule your free on-site estimate today and discover how much you can save with professional spray foam insulation from EcoSpray Solutions."
+        subtitle="Schedule your free on-site estimate today and discover how much you can save with professional spray foam insulation from Spray Foam Solutions."
         variant="gradient"
       />
 

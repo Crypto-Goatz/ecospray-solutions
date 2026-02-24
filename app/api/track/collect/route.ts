@@ -1,5 +1,5 @@
 // ============================================================
-// EcoSpray Solutions - Event Collection API
+// Spray Foam Solutions - Event Collection API
 // ============================================================
 // Receives batched events from the CRO9 tracker script.
 // Adapted to write to Google Sheets (0n_events tab) instead of Supabase.

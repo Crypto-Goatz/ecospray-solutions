@@ -42,7 +42,7 @@ const chapters = [
   { num: 2, title: "Where Foam Wins", subtitle: "Attic, Rim Joist & Crawl Space", icon: Home, color: "from-green-500 to-emerald-600", desc: "Room-by-room breakdown of where spray foam delivers the biggest ROI. From roof decks to rim joists to crawl space walls." },
   { num: 3, title: "Open-Cell vs. Closed-Cell", subtitle: "Pittsburgh-Style Matchups", icon: ThermometerSun, color: "from-orange-500 to-amber-600", desc: "Choosing the right foam type for each zone in your home. R-values, moisture control, and the pragmatic Pittsburgh blend." },
   { num: 4, title: "Costs, Payback & Financing", subtitle: "Real Numbers That Add Up", icon: DollarSign, color: "from-purple-500 to-violet-600", desc: "Typical project ranges from $1,200 to $9,000+. See real payback timelines and low-monthly-payment financing options." },
-  { num: 5, title: "Rebates & Incentives", subtitle: "Pittsburgh Area Programs", icon: Award, color: "from-pink-500 to-rose-600", desc: "Federal tax credits, local utility rebates, and how EcoSpray handles the paperwork so you can focus on your family." },
+  { num: 5, title: "Rebates & Incentives", subtitle: "Pittsburgh Area Programs", icon: Award, color: "from-pink-500 to-rose-600", desc: "Federal tax credits, local utility rebates, and how Spray Foam handles the paperwork so you can focus on your family." },
   { num: 6, title: "Room-by-Room Checklist", subtitle: "Your Personal Walkthrough", icon: ClipboardCheck, color: "from-teal-500 to-cyan-600", desc: "A printable checklist to inspect every corner of your home — attic, bedrooms, basement, and crawl space." },
 ]
 
@@ -198,7 +198,7 @@ function EbookMockup() {
         <div className="relative h-full flex flex-col items-center justify-between p-8 text-center">
           {/* Logo */}
           <div className="w-20 h-20 relative">
-            <Image src="/images/logos/icon.png" alt="EcoSpray" fill className="object-contain drop-shadow-lg" />
+            <Image src="/images/logos/icon.png" alt="Spray Foam" fill className="object-contain drop-shadow-lg" />
           </div>
 
           {/* Title */}
@@ -215,7 +215,7 @@ function EbookMockup() {
           {/* Bottom */}
           <div className="space-y-2">
             <div className="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-green-500 to-transparent" />
-            <p className="text-xs text-zinc-400">EcoSpray Solutions</p>
+            <p className="text-xs text-zinc-400">Spray Foam Solutions</p>
             <p className="text-[10px] text-zinc-500">Pittsburgh, PA</p>
           </div>
         </div>
@@ -418,7 +418,7 @@ export default function FreeGuidePage() {
 
                   <div className="relative space-y-6">
                     <div className="flex items-center gap-3">
-                      <Image src="/images/logos/icon-glow.png" alt="EcoSpray" width={60} height={60} className="rounded-xl" />
+                      <Image src="/images/logos/icon-glow.png" alt="Spray Foam" width={60} height={60} className="rounded-xl" />
                       <div>
                         <div className="font-bold text-white">The Numbers Don&apos;t Lie</div>
                         <div className="text-sm text-zinc-500">Spray Foam Results</div>
@@ -532,9 +532,9 @@ export default function FreeGuidePage() {
             <FadeIn>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" width={64} height={64} className="rounded-xl" />
+                  <Image src="/images/logos/icon.png" alt="Spray Foam Solutions" width={64} height={64} className="rounded-xl" />
                   <div>
-                    <h3 className="text-2xl font-black text-white">EcoSpray Solutions</h3>
+                    <h3 className="text-2xl font-black text-white">Spray Foam Solutions</h3>
                     <p className="text-green-400 text-sm">Pittsburgh&apos;s Spray Foam Experts</p>
                   </div>
                 </div>
@@ -579,7 +579,7 @@ export default function FreeGuidePage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="rounded-2xl overflow-hidden border border-zinc-800 hover:border-green-500/30 transition-all duration-300 card-lift">
-                    <Image src="/images/logos/banner-worker.png" alt="EcoSpray worker" width={400} height={200} className="w-full h-auto" />
+                    <Image src="/images/logos/banner-worker.png" alt="Spray Foam worker" width={400} height={200} className="w-full h-auto" />
                   </div>
                   <div className="p-4 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center hover:border-green-500/30 transition-all duration-300">
                     <div className="text-3xl font-black gradient-text">500+</div>
@@ -609,7 +609,7 @@ export default function FreeGuidePage() {
 
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
-            <Image src="/images/logos/logo-full.png" alt="EcoSpray Solutions" width={120} height={90} className="mx-auto mb-8 opacity-80" />
+            <Image src="/images/logos/logo-full.png" alt="Spray Foam Solutions" width={120} height={90} className="mx-auto mb-8 opacity-80" />
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
               Yinz Ready to Stop Letting the <span className="gradient-text">Cold Out?</span>
@@ -621,7 +621,7 @@ export default function FreeGuidePage() {
             <LeadForm variant="bottom" />
 
             <div className="mt-8 flex items-center justify-center gap-6 text-sm text-zinc-600">
-              <span>Published by EcoSpray Solutions</span>
+              <span>Published by Spray Foam Solutions</span>
               <span>|</span>
               <span>Pittsburgh, PA</span>
               <span>|</span>

@@ -5,26 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/admin/', '/api/'],
-      },
-      {
-        userAgent: 'GPTBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'ClaudeBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'PerplexityBot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Google-Extended',
-        allow: '/',
+        disallow: '/',
       },
     ],
-    sitemap: 'https://ecospraysolutions.com/sitemap.xml',
   }
 }

@@ -30,7 +30,7 @@ export function BrandingStep({ initial, businessName, onComplete, onBack }: Prop
       {/* Live Preview */}
       <div className="rounded-xl overflow-hidden border border-zinc-700">
         <div className="p-4" style={{ backgroundColor: colors.primary }}>
-          <h3 className="text-white font-bold text-lg">{businessName || "EcoSpray Solutions"}</h3>
+          <h3 className="text-white font-bold text-lg">{businessName || "Spray Foam Solutions"}</h3>
           <p className="text-white/80 text-sm">Professional insulation services you can trust</p>
         </div>
         <div className="bg-zinc-800 p-4">

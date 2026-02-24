@@ -36,7 +36,7 @@ export function CompletionStep({ spreadsheetUrl, onFinish }: Props) {
         </div>
         <h2 className="text-3xl font-bold text-white">You&apos;re all set!</h2>
         <p className="text-zinc-400 max-w-md mx-auto">
-          EcoSpray Solutions is configured and a redeployment has been triggered. Changes will be live in a few minutes.
+          Spray Foam Solutions is configured and a redeployment has been triggered. Changes will be live in a few minutes.
         </p>
 
         <div className="space-y-3 text-left max-w-sm mx-auto">

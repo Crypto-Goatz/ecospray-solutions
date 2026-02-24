@@ -1,4 +1,4 @@
-# EcoSpray Solutions
+# Spray Foam Solutions
 
 Modern, award-winning website for a spray foam insulation company in Pittsburgh, PA.
 
@@ -50,12 +50,12 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 ## Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Crypto-Goatz/ecospray-solutions)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Crypto-Goatz/spray-foam-solutions)
 
 ## Project Structure
 
 ```
-ecospray-solutions/
+spray-foam-solutions/
 ├── app/
 │   ├── layout.tsx          # Root layout with navbar
 │   ├── page.tsx            # Homepage
@@ -124,7 +124,7 @@ All content is in the component files. Update:
 ### Contact Info
 Search and replace these placeholders:
 - `(412) 555-1234` - Phone number
-- `info@ecospraysolutions.com` - Email
+- `info@example.com` - Email
 - `Murrysville, PA` - Location
 
 ## License

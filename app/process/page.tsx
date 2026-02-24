@@ -21,7 +21,7 @@ import { getBreadcrumbSchema, getHowToSchema, getFAQSchema } from '@/lib/schema-
 /* ─────────────────── Metadata (SXO-optimized) ─────────────────── */
 
 export const metadata: Metadata = {
-  title: 'How Spray Foam Insulation Works | Our Process | EcoSpray Solutions',
+  title: 'How Spray Foam Insulation Works | Our Process | Spray Foam Solutions',
   description:
     'Discover our simple 4-step spray foam insulation process in Pittsburgh. Free consultation, energy assessment, professional installation, and immediate savings. Call (724) 819-2727 for your free quote.',
   keywords: [
@@ -39,29 +39,29 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How Spray Foam Insulation Works | Our 4-Step Process',
     description:
-      'From free consultation to immediate energy savings — see how EcoSpray Solutions installs spray foam insulation in Pittsburgh homes and businesses.',
-    url: 'https://ecospraysolutions.com/process',
-    siteName: 'EcoSpray Solutions',
+      'From free consultation to immediate energy savings — see how Spray Foam Solutions installs spray foam insulation in Pittsburgh homes and businesses.',
+    url: 'https:///process',
+    siteName: 'Spray Foam Solutions',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://ecospraysolutions.com/images/logos/banner-worker.png',
+        url: 'https:///images/logos/banner-worker.png',
         width: 1200,
         height: 630,
-        alt: 'EcoSpray Solutions spray foam insulation installation process',
+        alt: 'Spray Foam Solutions spray foam insulation installation process',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How Spray Foam Insulation Works | EcoSpray Solutions',
+    title: 'How Spray Foam Insulation Works | Spray Foam Solutions',
     description:
       'Our simple 4-step process: Free consultation, energy assessment, professional installation, and immediate savings. Serving Pittsburgh & Western PA.',
-    images: ['https://ecospraysolutions.com/images/logos/banner-worker.png'],
+    images: ['https:///images/logos/banner-worker.png'],
   },
   alternates: {
-    canonical: 'https://ecospraysolutions.com/process',
+    canonical: 'https:///process',
   },
 }
 
@@ -173,8 +173,8 @@ const faqs = [
 /* ─────────────────── Structured Data ─────────────────── */
 
 const breadcrumbItems = [
-  { name: 'Home', url: 'https://ecospraysolutions.com' },
-  { name: 'Our Process', url: 'https://ecospraysolutions.com/process' },
+  { name: 'Home', url: 'https://' },
+  { name: 'Our Process', url: 'https:///process' },
 ]
 
 const howToSteps = steps.map((s) => ({
@@ -236,7 +236,7 @@ export default function ProcessPage() {
             <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-10 leading-relaxed">
               From your first phone call to lasting energy savings, our proven 4-step installation
               process makes upgrading your Pittsburgh home simple, fast, and stress-free. Here is
-              exactly what to expect when you choose EcoSpray Solutions.
+              exactly what to expect when you choose Spray Foam Solutions.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

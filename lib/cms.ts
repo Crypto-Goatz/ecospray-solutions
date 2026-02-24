@@ -1,12 +1,12 @@
 /**
  * CMS Helper — Thin wrapper for fetching content from Google Sheets with hardcoded fallback.
  * Components call these functions server-side. When Google Sheets is not configured,
- * they return the hardcoded EcoSpray data so the site always works.
+ * they return the hardcoded fallback data so the site always works.
  */
 
 import type { Row } from './0n-layers/core/types'
 
-// ─── Hardcoded Fallback Data (mirrors existing EcoSpray components) ─────────
+// ─── Hardcoded Fallback Data ─────────
 
 export const FALLBACK_SERVICES = [
   {
@@ -52,7 +52,7 @@ export const FALLBACK_TESTIMONIALS = [
     name: 'Mike & Sarah Johnson',
     location: 'Murrysville, PA',
     rating: '5',
-    text: 'Our heating bills dropped by 40% after EcoSpray insulated our attic. The crew was professional, clean, and finished in one day. Highly recommend!',
+    text: 'Our heating bills dropped by 40% after getting our attic insulated. The crew was professional, clean, and finished in one day. Highly recommend!',
     project: 'Attic Insulation',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=80',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
@@ -72,7 +72,7 @@ export const FALLBACK_TESTIMONIALS = [
     name: 'Jennifer Martinez',
     location: 'Monroeville, PA',
     rating: '5',
-    text: "We had terrible drafts in our 1920s home. EcoSpray sealed everything up and now our home is comfortable year-round. The difference is incredible.",
+    text: "We had terrible drafts in our 1920s home. The team sealed everything up and now our home is comfortable year-round. The difference is incredible.",
     project: 'Whole Home Retrofit',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80',
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80',
@@ -88,10 +88,10 @@ export const FALLBACK_STATS = [
 ]
 
 export const FALLBACK_CONFIG: Record<string, string> = {
-  business_name: 'EcoSpray Solutions',
-  tagline: "Pittsburgh's Spray Foam Experts",
-  phone: '(724) 819-2727',
-  email: 'hello@ecospraysolutions.com',
+  business_name: 'Spray Foam Solutions',
+  tagline: 'Spray Foam Solutions Optimized Environment',
+  phone: '',
+  email: '',
   location: 'Murrysville, PA',
   service_area: 'Serving Pittsburgh & Western PA',
   license: 'PA License #123456',

@@ -38,7 +38,7 @@ export function SiteImportStep({
   onBack,
 }: SiteImportStepProps) {
   const [tab, setTab] = useState<ImportTab>("url");
-  const [url, setUrl] = useState("ecospraysolutions.com");
+  const [url, setUrl] = useState("");
   const [gitUrl, setGitUrl] = useState("");
   const [phase, setPhase] = useState<Phase>("input");
   const [status, setStatus] = useState("");
@@ -297,7 +297,7 @@ export function SiteImportStep({
                 type="url"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                placeholder="https://ecospraysolutions.com"
+                placeholder="https://"
                 className="w-full px-4 py-2.5 rounded-lg bg-zinc-800 border border-zinc-700 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               />
               <p className="text-xs text-zinc-500 mt-1.5">

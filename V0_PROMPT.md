@@ -1,4 +1,4 @@
-# EcoSpray Solutions - v0 App Builder Prompt
+# Spray Foam Solutions - v0 App Builder Prompt
 
 ## Instructions for v0
 Copy everything below the line into v0.dev to generate an award-winning spray foam insulation website.
@@ -7,7 +7,7 @@ Copy everything below the line into v0.dev to generate an award-winning spray fo
 
 # BUILD PROMPT
 
-Build a modern, award-winning Next.js 15 website for "EcoSpray Solutions" - a spray foam insulation company in Pittsburgh, PA. The design should be dark-themed with green accents, featuring premium animations, micro-interactions, and a polished UI that could win design awards.
+Build a modern, award-winning Next.js 15 website for "Spray Foam Solutions" - a spray foam insulation company in Pittsburgh, PA. The design should be dark-themed with green accents, featuring premium animations, micro-interactions, and a polished UI that could win design awards.
 
 ## Tech Stack Requirements
 - Next.js 15 with App Router
@@ -134,7 +134,7 @@ const FloatingParticles = () => {
 5. Long Lasting - 25+ Years
 6. Eco-Friendly - Green Choice
 
-**Why Choose EcoSpray:**
+**Why Choose Spray Foam:**
 - Locally owned in Murrysville, PA
 - Licensed, bonded, fully insured
 - Free on-site estimates
@@ -422,7 +422,7 @@ export function ScrollReveal({ children, delay = 0 }) {
 
 ## Summary
 
-Create an EcoSpray Solutions website that:
+Create an Spray Foam Solutions website that:
 1. Uses a dark theme (#09090b) with green (#22c55e) accents
 2. Features animated gradient orb backgrounds
 3. Has scroll-triggered reveal animations

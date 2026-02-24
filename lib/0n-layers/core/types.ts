@@ -50,7 +50,7 @@ export interface LeadRow {
   updated_at: string
 }
 
-// -- EcoSpray-specific Row Types --
+// -- Spray Foam-specific Row Types --
 
 export interface ServiceRow {
   id: string

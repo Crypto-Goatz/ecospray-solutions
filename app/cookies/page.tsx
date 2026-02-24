@@ -1,8 +1,8 @@
 import Footer from "@/components/footer"
 
 export const metadata = {
-  title: "Cookie Policy | EcoSpray Solutions",
-  description: "Cookie policy for EcoSpray Solutions website.",
+  title: "Cookie Policy | Spray Foam Solutions",
+  description: "Cookie policy for Spray Foam Solutions website.",
 }
 
 export default function CookiesPage() {
@@ -18,7 +18,7 @@ export default function CookiesPage() {
             <p>Cookies are small text files stored on your device when you visit a website. They help websites remember your preferences and understand how you interact with the site.</p>
 
             <h2 className="text-xl font-semibold text-white mt-8">How We Use Cookies</h2>
-            <p>EcoSpray Solutions uses the following categories of cookies:</p>
+            <p>Spray Foam Solutions uses the following categories of cookies:</p>
 
             <h3 className="text-lg font-semibold text-white mt-6">Essential Cookies</h3>
             <p>These cookies are necessary for the website to function properly. They enable basic features like page navigation and access to secure areas. The website cannot function properly without these cookies.</p>
@@ -50,8 +50,8 @@ export default function CookiesPage() {
             <h2 className="text-xl font-semibold text-white mt-8">Contact</h2>
             <p>For questions about our cookie practices, contact:</p>
             <p>
-              <strong className="text-white">EcoSpray Solutions</strong><br />
-              Email: <a href="mailto:info@ecospraysolutions.com" className="text-green-400 hover:text-green-300">info@ecospraysolutions.com</a><br />
+              <strong className="text-white">Spray Foam Solutions</strong><br />
+              Email: <a href="mailto:info@" className="text-green-400 hover:text-green-300">info@</a><br />
               Phone: <a href="tel:+14125551234" className="text-green-400 hover:text-green-300">(412) 555-1234</a><br />
               Murrysville, PA
             </p>

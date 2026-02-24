@@ -3,7 +3,7 @@
  * Each sheet tab has defined columns.
  * CRM tabs include field mapping for sync.
  *
- * EcoSpray-specific tabs: services, testimonials, stats
+ * Spray Foam-specific tabs: services, testimonials, stats
  */
 
 // -- CMS + CRM Schema --
@@ -30,9 +30,9 @@ export const CMS_SCHEMA = {
     columns: ['id', 'file_name', 'drive_file_id', 'mime_type', 'subfolder', 'uploaded_at'],
   },
 
-  // -- EcoSpray-Specific Tabs --
+  // -- Spray Foam-Specific Tabs --
   services: {
-    description: 'EcoSpray service offerings',
+    description: 'Spray Foam service offerings',
     columns: ['id', 'title', 'description', 'icon', 'image', 'color', 'features', 'order'],
   },
   testimonials: {
@@ -117,10 +117,10 @@ export const CRM_FIELD_MAP: Record<string, string> = {
 
 // -- CMS Tab Definitions (for content manager UI) --
 
-export const CMS_TABS: { key: SheetName; label: string; category: 'cms' | 'crm' | 'ecospray' }[] = [
-  { key: 'services', label: 'Services', category: 'ecospray' },
-  { key: 'testimonials', label: 'Testimonials', category: 'ecospray' },
-  { key: 'stats', label: 'Stats', category: 'ecospray' },
+export const CMS_TABS: { key: SheetName; label: string; category: 'cms' | 'crm' | 'spray-foam' }[] = [
+  { key: 'services', label: 'Services', category: 'spray-foam' },
+  { key: 'testimonials', label: 'Testimonials', category: 'spray-foam' },
+  { key: 'stats', label: 'Stats', category: 'spray-foam' },
   { key: 'pages', label: 'Pages', category: 'cms' },
   { key: 'blog_posts', label: 'Blog Posts', category: 'cms' },
   { key: 'navigation', label: 'Navigation', category: 'cms' },

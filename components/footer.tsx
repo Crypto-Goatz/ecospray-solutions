@@ -5,9 +5,9 @@ import Image from "next/image"
 import { Phone, Mail, MapPin, Facebook, Instagram, BookOpen } from "lucide-react"
 
 const DEFAULT_CONFIG: Record<string, string> = {
-  business_name: 'EcoSpray Solutions',
+  business_name: 'Spray Foam Solutions',
   phone: '(724) 819-2727',
-  email: 'hello@ecospraysolutions.com',
+  email: '',
   location: 'Murrysville, PA',
   service_area: 'Serving Pittsburgh & Western PA',
   license: 'PA License #123456',
@@ -28,10 +28,10 @@ export default function Footer({ config }: FooterProps) {
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4 group">
               <div className="w-12 h-12 relative flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                <Image src="/images/logos/icon.png" alt="EcoSpray Solutions" fill className="object-contain" />
+                <Image src="/images/logos/icon.png" alt="Spray Foam Solutions" fill className="object-contain" />
               </div>
               <div>
-                <span className="font-bold text-white text-lg">EcoSpray</span>
+                <span className="font-bold text-white text-lg">Spray Foam</span>
                 <span className="text-green-400 text-sm ml-1">Solutions</span>
                 <div className="text-xs text-zinc-500">Spray Foam Insulation</div>
               </div>

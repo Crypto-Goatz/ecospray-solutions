@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     const lastName = nameParts.slice(1).join(' ') || ''
 
     // Build tags from property type and source
-    const tags: string[] = ['lead', 'ecospray-website']
+    const tags: string[] = ['lead', 'spray-foam-website']
     if (propertyType) {
       tags.push(propertyType)
     }
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
           lastName,
           email: email.trim().toLowerCase(),
           phone: (phone || '').trim(),
-          tags: ['ecospray-website', 'contact-form', propertyType].filter(Boolean) as string[],
+          tags: ['spray-foam-website', 'contact-form', propertyType].filter(Boolean) as string[],
           customFields: branding,
         })
       } catch (e) {

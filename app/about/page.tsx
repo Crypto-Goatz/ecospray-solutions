@@ -13,11 +13,11 @@ import { getBreadcrumbSchema, getOrganizationSchema, getFAQSchema } from '@/lib/
 /* ─────────────────────── SEO Metadata ─────────────────────── */
 
 export const metadata: Metadata = {
-  title: "About EcoSpray Solutions | Pittsburgh's Spray Foam Insulation Experts",
+  title: "About Spray Foam Solutions | Pittsburgh's Spray Foam Insulation Experts",
   description:
-    "Learn about EcoSpray Solutions — Murrysville, PA's locally owned spray foam insulation company serving Pittsburgh and Western PA. Over 10 years of experience, 500+ completed projects, licensed, bonded, and fully insured. Discover why homeowners trust us for energy-efficient insulation.",
+    "Learn about Spray Foam Solutions — Murrysville, PA's locally owned spray foam insulation company serving Pittsburgh and Western PA. Over 10 years of experience, 500+ completed projects, licensed, bonded, and fully insured. Discover why homeowners trust us for energy-efficient insulation.",
   keywords: [
-    'about EcoSpray Solutions',
+    'about Spray Foam Solutions',
     'spray foam insulation company Pittsburgh',
     'Murrysville PA insulation contractor',
     'Pittsburgh insulation experts',
@@ -29,31 +29,31 @@ export const metadata: Metadata = {
     'about spray foam insulation company Pittsburgh',
   ],
   openGraph: {
-    title: "About EcoSpray Solutions | Pittsburgh's Spray Foam Insulation Experts",
+    title: "About Spray Foam Solutions | Pittsburgh's Spray Foam Insulation Experts",
     description:
       'Locally owned in Murrysville, PA. 10+ years of experience, 500+ projects completed, 4.9-star rating. Licensed, bonded, and fully insured spray foam insulation professionals serving Pittsburgh and Western PA.',
-    url: 'https://ecospraysolutions.com/about',
-    siteName: 'EcoSpray Solutions',
+    url: 'https:///about',
+    siteName: 'Spray Foam Solutions',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://ecospraysolutions.com/images/logos/banner-worker.png',
+        url: 'https:///images/logos/banner-worker.png',
         width: 1200,
         height: 630,
-        alt: 'EcoSpray Solutions team — Pittsburgh spray foam insulation experts',
+        alt: 'Spray Foam Solutions team — Pittsburgh spray foam insulation experts',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "About EcoSpray Solutions | Pittsburgh's Spray Foam Insulation Experts",
+    title: "About Spray Foam Solutions | Pittsburgh's Spray Foam Insulation Experts",
     description:
       'Locally owned in Murrysville, PA. 10+ years, 500+ projects, 4.9-star rating. Licensed & insured spray foam insulation for Pittsburgh & Western PA.',
-    images: ['https://ecospraysolutions.com/images/logos/banner-worker.png'],
+    images: ['https:///images/logos/banner-worker.png'],
   },
   alternates: {
-    canonical: 'https://ecospraysolutions.com/about',
+    canonical: 'https:///about',
   },
 }
 
@@ -61,27 +61,27 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: 'How long has EcoSpray Solutions been in business?',
+    question: 'How long has Spray Foam Solutions been in business?',
     answer:
-      'EcoSpray Solutions has been serving Pittsburgh and Western Pennsylvania for over 10 years. We started in Murrysville, PA with a simple mission: help local homeowners and businesses save energy and improve comfort through professional spray foam insulation. Since then, we have completed more than 500 projects across the region.',
+      'Spray Foam Solutions has been serving Pittsburgh and Western Pennsylvania for over 10 years. We started in Murrysville, PA with a simple mission: help local homeowners and businesses save energy and improve comfort through professional spray foam insulation. Since then, we have completed more than 500 projects across the region.',
   },
   {
-    question: 'Is EcoSpray Solutions licensed and insured?',
+    question: 'Is Spray Foam Solutions licensed and insured?',
     answer:
-      'Yes. EcoSpray Solutions is fully licensed in the state of Pennsylvania, bonded, and carries comprehensive general liability insurance. Every member of our installation crew is trained, certified, and covered by workers compensation. We are happy to provide proof of insurance upon request.',
+      'Yes. Spray Foam Solutions is fully licensed in the state of Pennsylvania, bonded, and carries comprehensive general liability insurance. Every member of our installation crew is trained, certified, and covered by workers compensation. We are happy to provide proof of insurance upon request.',
   },
   {
-    question: 'What areas does EcoSpray Solutions serve?',
+    question: 'What areas does Spray Foam Solutions serve?',
     answer:
       'We serve the greater Pittsburgh metropolitan area and all of Western Pennsylvania. Our primary service area includes Murrysville, Monroeville, Export, Greensburg, Irwin, North Huntingdon, Delmont, Latrobe, Jeannette, Penn Township, Plum, Penn Hills, Trafford, and Harrison City. If you are within driving distance of Pittsburgh, we can likely serve you.',
   },
   {
-    question: 'Does EcoSpray Solutions offer warranties on their work?',
+    question: 'Does Spray Foam Solutions offer warranties on their work?',
     answer:
       'Absolutely. We stand behind every job with a lifetime warranty on workmanship. The spray foam products we use also come with manufacturer warranties. If you ever experience an issue with our installation, we will return to make it right at no additional cost.',
   },
   {
-    question: 'Does EcoSpray Solutions offer free estimates?',
+    question: 'Does Spray Foam Solutions offer free estimates?',
     answer:
       'Yes, we provide free on-site estimates for every project. One of our insulation specialists will visit your property, assess the areas that need insulation, take measurements, answer all your questions, and provide a detailed written proposal within 24 to 48 hours. There is no pressure and no obligation. We also offer financing options to make projects more affordable.',
   },
@@ -194,8 +194,8 @@ const stats = [
 
 export default function AboutPage() {
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://ecospraysolutions.com' },
-    { name: 'About', url: 'https://ecospraysolutions.com/about' },
+    { name: 'Home', url: 'https://' },
+    { name: 'About', url: 'https:///about' },
   ]
 
   const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems)
@@ -246,7 +246,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl mb-8">
-              EcoSpray Solutions is a locally owned insulation company based in Murrysville, Pennsylvania.
+              Spray Foam Solutions is a locally owned insulation company based in Murrysville, Pennsylvania.
               For over a decade, we have been helping homeowners and businesses across the Pittsburgh region
               save energy, improve comfort, and protect their properties with professional spray foam insulation.
               Every project we take on is backed by deep local knowledge, hands-on expertise, and an unwavering
@@ -286,7 +286,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-800 hover:border-green-500/30 transition-all duration-500 img-zoom">
                 <Image
                   src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-                  alt="EcoSpray Solutions team performing spray foam insulation in a Pittsburgh area home"
+                  alt="Spray Foam Solutions team performing spray foam insulation in a Pittsburgh area home"
                   fill
                   className="object-cover"
                   priority
@@ -323,7 +323,7 @@ export default function AboutPage() {
 
               <div className="space-y-4 text-zinc-400 leading-relaxed">
                 <p>
-                  EcoSpray Solutions was born out of a straightforward observation: too many Pittsburgh homeowners
+                  Spray Foam Solutions was born out of a straightforward observation: too many Pittsburgh homeowners
                   were paying sky-high energy bills because their homes were poorly insulated. Drafty attics, cold
                   basements, and uncomfortable rooms were the norm, not the exception. We knew there was a better way.
                 </p>
@@ -444,7 +444,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-800 img-zoom">
                 <Image
                   src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
-                  alt="EcoSpray Solutions professional insulation crew at work in a Pittsburgh home"
+                  alt="Spray Foam Solutions professional insulation crew at work in a Pittsburgh home"
                   fill
                   className="object-cover"
                 />
@@ -476,7 +476,7 @@ export default function AboutPage() {
 
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
                 Why Pittsburgh Trusts{' '}
-                <span className="gradient-text">EcoSpray Solutions</span>
+                <span className="gradient-text">Spray Foam Solutions</span>
               </h2>
 
               <p className="text-zinc-400 text-lg mb-8">
@@ -524,7 +524,7 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
-              EcoSpray by the <span className="gradient-text">Numbers</span>
+              Spray Foam by the <span className="gradient-text">Numbers</span>
             </h2>
             <p className="text-zinc-400 max-w-xl mx-auto">
               A track record built on results, not promises. Every number here represents real
@@ -565,7 +565,7 @@ export default function AboutPage() {
               Frequently Asked <span className="gradient-text">Questions</span>
             </h2>
             <p className="text-zinc-400 max-w-2xl mx-auto">
-              Everything you need to know about EcoSpray Solutions, our team, and how we work.
+              Everything you need to know about Spray Foam Solutions, our team, and how we work.
               Have a question that is not listed here? Give us a call at{' '}
               <a href="tel:+17248192727" className="text-green-400 hover:text-green-300 transition-colors font-medium">
                 (724) 819-2727

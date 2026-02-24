@@ -10,7 +10,7 @@ import { ContentGenerationStep } from "./ContentGenerationStep";
 import { IntegrationsStep } from "./IntegrationsStep";
 import { CompletionStep } from "./CompletionStep";
 
-const STORAGE_KEY = "ecospray-setup-wizard";
+const STORAGE_KEY = "spray-foam-setup-wizard";
 
 interface WizardState {
   currentStep: number;
@@ -156,7 +156,7 @@ export function SetupWizard() {
     <div>
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-white">Site Setup Wizard</h1>
-        <p className="text-zinc-400 mt-1 text-sm">Configure EcoSpray Solutions in a few simple steps</p>
+        <p className="text-zinc-400 mt-1 text-sm">Configure Spray Foam Solutions in a few simple steps</p>
       </div>
 
       <StepIndicator currentStep={state.currentStep} completedSteps={completedSet} />
@@ -190,7 +190,7 @@ export function SetupWizard() {
 
         {state.currentStep === 3 && (
           <GoogleConnectStep
-            businessName={(state.businessInfo as BusinessInfo)?.name || "EcoSpray Solutions"}
+            businessName={(state.businessInfo as BusinessInfo)?.name || "Spray Foam Solutions"}
             onComplete={(data) =>
               goTo(4, {
                 googleKey: data.googleKey,

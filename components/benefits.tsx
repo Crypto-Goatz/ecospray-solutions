@@ -158,7 +158,7 @@ export default function Benefits() {
           <div>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Why Choose
-              <span className="gradient-text"> EcoSpray Solutions?</span>
+              <span className="gradient-text"> Spray Foam Solutions?</span>
             </h3>
             <p className="text-zinc-400 text-lg mb-8">
               We&apos;re not just another insulation company. We&apos;re your neighbors,

@@ -19,7 +19,7 @@ const VALID_SHEETS: SheetName[] = [
   'pipeline',
   'activities',
   'tags',
-  // EcoSpray-specific tabs
+  // Spray Foam-specific tabs
   'services',
   'testimonials',
   'stats',
