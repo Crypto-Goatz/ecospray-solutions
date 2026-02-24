@@ -3,12 +3,13 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { SERVICES } from "@/lib/services-data";
 import { AREAS } from "@/lib/areas-data";
+import Logo from "@/components/logo";
 
 const COMPANY_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Our Process", href: "/process" },
-  { label: "Reviews", href: "/reviews" },
+  { label: "Areas", href: "/areas" },
   { label: "Free Estimate", href: "/free-estimate" },
   { label: "Contact", href: "/contact" },
 ];
@@ -134,9 +135,12 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/40">
-            &copy; 2026 {SITE.name}. All rights reserved.
-          </p>
+          <div className="flex items-center gap-4">
+            <Logo className="text-white/60" size="small" />
+            <p className="text-sm text-white/40">
+              &copy; 2026 {SITE.name}. All rights reserved.
+            </p>
+          </div>
           <div className="flex items-center gap-6 text-sm text-white/40">
             <Link
               href="/privacy"

@@ -104,36 +104,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* Our Story with Image */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <ScrollReveal>
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--slate-900)] mb-6 section-divider text-center">
-                Our Story
-              </h2>
-              <div className="mt-10 space-y-5 text-[var(--slate-700)] leading-relaxed">
-                <p>
-                  Pittsburgh homeowners face some of the toughest weather in the country: bitter
-                  winters with sub-zero wind chills and humid summers that push air conditioning
-                  to its limits. For too long, families have been paying sky-high energy bills
-                  because their homes were built with insulation that simply does not perform.
-                </p>
-                <p>
-                  We founded {SITE.name} to change that. As local insulation professionals
-                  with deep roots in Western Pennsylvania, we saw firsthand how spray foam
-                  technology could transform a drafty, uncomfortable house into an energy-efficient
-                  home. We knew the community deserved a contractor they could trust -- one that
-                  shows up on time, does the job right, and stands behind the work for life.
-                </p>
-                <p>
-                  Over the past {SITE.stats.experience} years, that commitment has earned us more
-                  than {SITE.stats.projects} completed projects, a {SITE.stats.rating}-star customer
-                  rating, and the privilege of being one of Pittsburgh&apos;s most recommended spray
-                  foam insulation companies. Every project, from a single crawl space to a full
-                  commercial build, gets our complete attention and best work.
-                </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-[var(--slate-900)] mb-6 section-divider">
+                  Our Story
+                </h2>
+                <div className="mt-8 space-y-5 text-[var(--slate-700)] leading-relaxed">
+                  <p>
+                    Pittsburgh homeowners face some of the toughest weather in the country: bitter
+                    winters with sub-zero wind chills and humid summers that push air conditioning
+                    to its limits. For too long, families have been paying sky-high energy bills
+                    because their homes were built with insulation that simply does not perform.
+                  </p>
+                  <p>
+                    We founded {SITE.name} to change that. As local insulation professionals
+                    with deep roots in Western Pennsylvania, we saw firsthand how spray foam
+                    technology could transform a drafty, uncomfortable house into an energy-efficient
+                    home. We knew the community deserved a contractor they could trust — one that
+                    shows up on time, does the job right, and stands behind the work for life.
+                  </p>
+                  <p>
+                    Over the past {SITE.stats.experience} years, that commitment has earned us more
+                    than {SITE.stats.projects} completed projects, a {SITE.stats.rating}-star customer
+                    rating, and the privilege of being one of Pittsburgh&apos;s most recommended spray
+                    foam insulation companies.
+                  </p>
+                </div>
               </div>
+              <ScrollReveal direction="right">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=500&fit=crop"
+                    alt="Professional insulation team at work in Pittsburgh"
+                    className="w-full h-[400px] object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/40 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3 px-4 py-3 rounded-xl bg-white/90 backdrop-blur-sm">
+                    <div className="w-12 h-12 rounded-full bg-[var(--orange)] flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-[var(--navy)] text-sm">{SITE.stats.projects} Projects Completed</div>
+                      <div className="text-xs text-[var(--slate-500)]">Across the Greater Pittsburgh Area</div>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
           </ScrollReveal>
         </div>

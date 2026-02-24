@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
 
-      {/* Hero */}
+      {/* Hero with Image */}
       <section className="hero-gradient pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <Breadcrumbs
@@ -81,13 +81,26 @@ export default async function ServiceDetailPage({ params }: Props) {
               { label: service.shortTitle },
             ]}
           />
-          <div className="mt-8 max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              {service.title}
-            </h1>
-            <p className="text-lg text-white/70 leading-relaxed">
-              {service.hero}
-            </p>
+          <div className="mt-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                {service.title}
+              </h1>
+              <p className="text-lg text-white/70 leading-relaxed">
+                {service.hero}
+              </p>
+            </div>
+            <div className="hidden lg:block">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <img
+                  src={service.image}
+                  alt={service.imageAlt}
+                  className="w-full h-[350px] object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/50 via-transparent to-transparent" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

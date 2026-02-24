@@ -5,6 +5,8 @@ export interface ServiceData {
   icon: string;
   description: string;
   hero: string;
+  image: string;
+  imageAlt: string;
   benefits: string[];
   features: string[];
   content: string;
@@ -20,6 +22,8 @@ export const SERVICES: ServiceData[] = [
     icon: "Home",
     description: "Transform your home's comfort and slash energy bills with professional closed-cell and open-cell spray foam insulation.",
     hero: "Your home deserves the best insulation technology available. Our residential spray foam creates an airtight thermal barrier that keeps your family comfortable year-round while cutting heating and cooling costs by up to 50%.",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?w=800&h=500&fit=crop",
+    imageAlt: "Beautiful Pittsburgh residential home with energy efficient upgrades",
     benefits: [
       "Cut energy bills by 40-50% on average",
       "Eliminate drafts and cold spots permanently",
@@ -60,6 +64,8 @@ Every home is different. Our certified technicians perform a thorough assessment
     icon: "Building2",
     description: "Reduce operating costs and improve tenant comfort with high-performance commercial spray foam insulation solutions.",
     hero: "Commercial buildings lose thousands of dollars annually through inadequate insulation. Our commercial spray foam solutions deliver measurable ROI through dramatic energy savings, improved HVAC efficiency, and reduced maintenance costs.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop",
+    imageAlt: "Commercial building in Pittsburgh receiving spray foam insulation",
     benefits: [
       "Reduce HVAC costs by 30-50%",
       "Extend roof life by 20+ years with SPF roofing",
@@ -99,6 +105,8 @@ We work around your business schedule — nights, weekends, and phased installat
     icon: "HardHat",
     description: "Build it right from the start. Spray foam insulation for new homes and commercial construction projects in the Pittsburgh area.",
     hero: "New construction is the perfect opportunity to install the best insulation system available. Spray foam during the framing stage delivers maximum performance, ensures code compliance, and sets your building up for decades of energy efficiency.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=500&fit=crop",
+    imageAlt: "New construction framing ready for spray foam insulation",
     benefits: [
       "Maximum R-value in minimum wall thickness",
       "Exceeds Pennsylvania energy code requirements",
@@ -140,6 +148,8 @@ The R-value per inch is 2-3x higher than fiberglass, meaning you can meet energy
     icon: "Warehouse",
     description: "Eliminate moisture, mold, and cold floors with professional crawl space spray foam insulation and encapsulation.",
     hero: "Your crawl space is the hidden energy drain under your home. Moisture, mold, and uninsulated surfaces rob your comfort and damage your home's structure. Spray foam insulation and encapsulation solve these problems permanently.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=500&fit=crop",
+    imageAlt: "Crawl space under a home being prepared for insulation",
     benefits: [
       "Eliminate cold floors above the crawl space",
       "Stop moisture and mold at the source",
@@ -185,6 +195,8 @@ The result: a clean, dry, insulated crawl space that dramatically improves your 
     icon: "Layers",
     description: "Stop heat from escaping through your roof. Professional attic spray foam insulation for maximum energy savings.",
     hero: "Your attic is the #1 source of energy loss in your home. Heat rises — and without proper insulation, it goes straight through your roof. Spray foam in your attic creates an impenetrable thermal barrier that keeps your home comfortable and your energy bills low.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop",
+    imageAlt: "Attic space with spray foam insulation applied to rafters",
     benefits: [
       "Reduce heat loss through the roof by up to 90%",
       "Eliminate ice dams in winter",

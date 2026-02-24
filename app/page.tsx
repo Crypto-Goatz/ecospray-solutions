@@ -1,21 +1,20 @@
-import Hero from "@/components/hero"
-import ScrollReveal from "@/components/scroll-reveal"
-import ServicesGrid from "@/components/services-grid"
-import Stats from "@/components/stats"
-import Benefits from "@/components/benefits"
-import Testimonials from "@/components/testimonials"
-import CtaBanner from "@/components/cta-banner"
-import AreasGrid from "@/components/areas-grid"
-import { reviewSchema } from "@/lib/schema"
+import Hero from "@/components/hero";
+import ScrollReveal from "@/components/scroll-reveal";
+import ServicesGrid from "@/components/services-grid";
+import Stats from "@/components/stats";
+import Benefits from "@/components/benefits";
+import Testimonials from "@/components/testimonials";
+import CtaBanner from "@/components/cta-banner";
+import AreasGrid from "@/components/areas-grid";
+import ImageShowcase from "@/components/image-showcase";
+import { reviewSchema } from "@/lib/schema";
 
 export default function HomePage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(reviewSchema()),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema()) }}
       />
 
       <Hero />
@@ -29,23 +28,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Image Showcase */}
+      <ImageShowcase />
+
       {/* Stats */}
-      <section className="bg-[var(--slate-50)] py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <ScrollReveal>
-            <Stats />
-          </ScrollReveal>
-        </div>
-      </section>
+      <ScrollReveal>
+        <Stats />
+      </ScrollReveal>
 
       {/* Benefits */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <ScrollReveal>
-            <Benefits />
-          </ScrollReveal>
-        </div>
-      </section>
+      <Benefits />
 
       {/* Testimonials */}
       <ScrollReveal>
@@ -71,5 +63,5 @@ export default function HomePage() {
         <CtaBanner variant="call" />
       </ScrollReveal>
     </>
-  )
+  );
 }

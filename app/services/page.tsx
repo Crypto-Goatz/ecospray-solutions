@@ -103,6 +103,35 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Before/After Visual */}
+      <section className="bg-[var(--navy)] py-16 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <ScrollReveal>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&h=350&fit=crop", label: "Attic Insulation", desc: "R-38+ coverage" },
+                { src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&h=350&fit=crop", label: "Wall Systems", desc: "Complete air sealing" },
+                { src: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500&h=350&fit=crop", label: "Crawl Spaces", desc: "Full encapsulation" },
+              ].map((item) => (
+                <div key={item.label} className="group relative rounded-2xl overflow-hidden">
+                  <img
+                    src={item.src}
+                    alt={item.label}
+                    className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)] via-[var(--navy)]/30 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-[var(--orange)] text-white text-xs font-semibold mb-2">{item.label}</span>
+                    <p className="text-white/80 text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Benefits */}
       <section className="bg-[var(--slate-50)] py-20">
         <div className="max-w-7xl mx-auto px-4">

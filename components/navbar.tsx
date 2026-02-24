@@ -4,13 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, Menu, X, ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/constants";
+import Logo from "@/components/logo";
 
 const NAV_LINKS = [
-  { label: "Services", href: "/#services" },
-  { label: "Areas", href: "/#areas" },
-  { label: "Process", href: "/#process" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Areas", href: "/areas" },
+  { label: "Process", href: "/process" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -48,26 +49,8 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col leading-none group">
-            <span className="flex items-center gap-1">
-              <span
-                className="w-1 h-6 rounded-full bg-[var(--orange)] transition-all duration-300 group-hover:h-7"
-              />
-              <span
-                className={`text-xl font-extrabold tracking-tight transition-colors duration-500 ${
-                  scrolled ? "text-[var(--navy)]" : "text-white"
-                }`}
-              >
-                SPRAY FOAM
-              </span>
-            </span>
-            <span
-              className={`text-[11px] font-medium tracking-widest uppercase ml-3 transition-colors duration-500 ${
-                scrolled ? "text-[var(--slate-500)]" : "text-white/60"
-              }`}
-            >
-              near pittsburgh
-            </span>
+          <Link href="/" className="group">
+            <Logo className={`transition-colors duration-500 ${scrolled ? "text-[var(--navy)]" : "text-white"}`} size="small" />
           </Link>
 
           {/* Desktop Nav Links */}

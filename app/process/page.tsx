@@ -29,6 +29,8 @@ const steps = [
     title: "Free Consultation & Energy Assessment",
     description:
       "Give us a call or fill out our online form. We will discuss your goals, answer your questions, and schedule a convenient time to visit your property. During the visit, our certified insulation experts identify air leaks, thermal weak points, and areas where energy is being wasted using professional diagnostic tools.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
+    imageAlt: "Home energy assessment consultation with property owner",
   },
   {
     step: 2,
@@ -36,6 +38,8 @@ const steps = [
     title: "Custom Insulation Plan",
     description:
       "Based on our assessment, we design a custom insulation plan tailored to your property. You receive a detailed written proposal with transparent pricing, recommended foam type (open-cell, closed-cell, or both), projected energy savings, and a clear timeline. No surprises, no hidden fees.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+    imageAlt: "Detailed insulation plan and proposal being prepared",
   },
   {
     step: 3,
@@ -43,6 +47,8 @@ const steps = [
     title: "Professional Installation",
     description:
       "Our trained, fully insured crews arrive on schedule and get to work. We carefully prepare the area with protective coverings, apply the spray foam using professional-grade equipment, and verify coverage with thermal imaging. Most residential projects are completed in a single day.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop",
+    imageAlt: "Professional spray foam insulation installation in progress",
   },
   {
     step: 4,
@@ -50,6 +56,8 @@ const steps = [
     title: "Quality Verification & Walkthrough",
     description:
       "Once installation is complete, our crew lead walks you through the finished work. We verify coverage, thickness, and R-value meet or exceed specifications. You receive warranty documentation and care instructions. The difference in comfort is immediate -- and your next energy bill will prove it.",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop",
+    imageAlt: "Final quality inspection and walkthrough with homeowner",
   },
 ]
 
@@ -125,58 +133,88 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* 4-Step Process */}
+      {/* 4-Step Process with Images */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
+              <span className="inline-block text-sm font-semibold text-[var(--orange)] tracking-wider uppercase mb-3">
+                Simple & Stress-Free
+              </span>
               <h2 className="text-3xl md:text-4xl font-bold text-[var(--slate-900)] section-divider">
                 4 Simple Steps to Better Comfort
               </h2>
             </div>
+          </ScrollReveal>
 
-            {/* Timeline */}
-            <div className="relative max-w-4xl mx-auto">
-              {/* Vertical line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--orange)] via-[var(--blue)] to-[var(--green)] hidden md:block -translate-x-1/2" />
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--orange)] via-[var(--blue)] to-[var(--green)] md:hidden" />
-
-              <div className="space-y-12">
-                {steps.map((step, index) => {
-                  const isLeft = index % 2 === 0
-                  return (
-                    <div key={step.step} className="relative">
-                      {/* Step number circle */}
-                      <div className="absolute left-8 md:left-1/2 w-16 h-16 -translate-x-1/2 rounded-full bg-white border-4 border-[var(--orange)] flex items-center justify-center z-10 shadow-lg">
-                        <span className="text-xl font-bold text-[var(--orange)]">
-                          {step.step}
-                        </span>
-                      </div>
-
-                      {/* Content card */}
-                      <div
-                        className={`ml-20 md:ml-0 md:w-[calc(50%-48px)] ${
-                          isLeft ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-                        }`}
-                      >
-                        <div className="card">
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="w-10 h-10 rounded-lg bg-[var(--orange)]/10 flex items-center justify-center">
-                              <step.icon className="w-5 h-5 text-[var(--orange)]" />
-                            </div>
-                            <h3 className="text-xl font-bold text-[var(--slate-900)]">
-                              {step.title}
-                            </h3>
-                          </div>
-                          <p className="text-[var(--slate-500)] leading-relaxed">
-                            {step.description}
-                          </p>
+          <div className="space-y-24">
+            {steps.map((step, index) => {
+              const isReversed = index % 2 === 1
+              return (
+                <ScrollReveal key={step.step}>
+                  <div className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? "lg:flex-row-reverse" : ""}`}>
+                    {/* Image Side */}
+                    <div className={`${isReversed ? "lg:order-2" : "lg:order-1"}`}>
+                      <div className="relative group">
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                          <img
+                            src={step.image}
+                            alt={step.imageAlt}
+                            className="w-full h-[350px] object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/60 via-transparent to-transparent" />
+                        </div>
+                        {/* Step number badge */}
+                        <div className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-[var(--orange)] flex items-center justify-center shadow-lg shadow-[var(--orange)]/30 z-10">
+                          <span className="text-2xl font-extrabold text-white">{step.step}</span>
                         </div>
                       </div>
                     </div>
-                  )
-                })}
-              </div>
+
+                    {/* Content Side */}
+                    <div className={`${isReversed ? "lg:order-1" : "lg:order-2"}`}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-[var(--orange)]/10 flex items-center justify-center">
+                          <step.icon className="w-6 h-6 text-[var(--orange)]" />
+                        </div>
+                        <span className="text-sm font-semibold text-[var(--orange)] uppercase tracking-wider">
+                          Step {step.step}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-[var(--slate-900)] mb-4">
+                        {step.title}
+                      </h3>
+                      <p className="text-[var(--slate-600)] leading-relaxed text-lg">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Separator - Before & After Stats */}
+      <section className="bg-[var(--navy)] py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <ScrollReveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              {[
+                { val: "1 Day", label: "Average Install Time" },
+                { val: "50%", label: "Energy Savings" },
+                { val: "Lifetime", label: "Workmanship Warranty" },
+                { val: "24hr", label: "Full Cure Time" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-3xl md:text-4xl font-extrabold text-[var(--orange)] mb-2">
+                    {stat.val}
+                  </div>
+                  <div className="text-sm text-white/60">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
