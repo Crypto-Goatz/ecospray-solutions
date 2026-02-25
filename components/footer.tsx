@@ -10,6 +10,7 @@ const COMPANY_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Our Process", href: "/process" },
   { label: "Areas", href: "/areas" },
+  { label: "Licensed Contractor", href: "/licensed-contractor" },
   { label: "Free Estimate", href: "/free-estimate" },
   { label: "Contact", href: "/contact" },
 ];

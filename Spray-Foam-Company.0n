@@ -1,0 +1,329 @@
+{
+  "$0n": {
+    "type": "bundle",
+    "version": "1.0.0",
+    "created": "2026-02-24T00:00:00Z",
+    "updated": "2026-02-24T00:00:00Z",
+    "name": "Spray Foam Company — Digital Business Deed",
+    "description": "Complete digital identity, credentials, and operational configuration for the NearPittsburgh Spray Foam lead generation business. This file is the portable, encrypted, verifiable source of truth for transferring business ownership and operational access.",
+    "schema": "digital-deed/1.0.0",
+    "security": {
+      "encryption": "aes-256-gcm",
+      "kdf": "pbkdf2-sha512-100k",
+      "portable": true,
+      "machine_bound": false,
+      "transfer_protocol": "0n-deed/1.0.0"
+    }
+  },
+
+  "identity": {
+    "business_name": "NearPittsburgh Spray Foam",
+    "legal_entity": "RocketOpp LLC",
+    "domain": "sprayfoam.nearpittsburgh.com",
+    "parent_domain": "nearpittsburgh.com",
+    "industry": "Home Improvement / Insulation",
+    "region": "Pittsburgh, PA — Western Pennsylvania",
+    "established": "2026-02-24",
+    "business_model": "Lead Generation — collect and route leads to paying contractors",
+    "brand": {
+      "tagline": "Pittsburgh's Spray Foam Insulation Experts",
+      "colors": {
+        "navy": "#0c1b2e",
+        "blue": "#1e40af",
+        "orange": "#f97316",
+        "green": "#059669"
+      },
+      "logo_type": "svg_component",
+      "logo_path": "components/logo.tsx"
+    }
+  },
+
+  "contacts": {
+    "owner": {
+      "name": "Mike",
+      "email": "mike@rocketopp.com",
+      "role": "Owner / Operator"
+    },
+    "business": {
+      "phone": "(724) 819-2727",
+      "phone_tel": "+17248192727",
+      "email": "info@nearpittsburgh.com",
+      "address": {
+        "city": "Pittsburgh",
+        "state": "PA",
+        "zip": "15201",
+        "display": "Serving Greater Pittsburgh, PA"
+      },
+      "hours": "Mon–Sat 7AM–6PM"
+    }
+  },
+
+  "connections": [
+    {
+      "service": "crm",
+      "name": "CRM Lead Routing",
+      "environment": "production",
+      "auth_type": "api_key",
+      "credential_keys": ["api_key", "location_id"],
+      "sealed": true,
+      "vault": {
+        "data": "{{SEALED_AT_EXPORT}}",
+        "algorithm": "aes-256-gcm",
+        "kdf": "pbkdf2-sha512-100k",
+        "portable": true
+      },
+      "config": {
+        "api_base": "https://services.leadconnectorhq.com",
+        "api_version": "2021-07-28",
+        "tags": ["spray-foam-lead", "nearpittsburgh", "website-form"],
+        "pipeline": "spray-foam-leads",
+        "lead_source": "sprayfoam.nearpittsburgh.com"
+      },
+      "env_keys": {
+        "api_key": "CRM_API_KEY",
+        "location_id": "CRM_LOCATION_ID"
+      }
+    },
+    {
+      "service": "vercel",
+      "name": "Vercel Deployment",
+      "environment": "production",
+      "auth_type": "bearer",
+      "credential_keys": ["token"],
+      "sealed": true,
+      "vault": {
+        "data": "{{SEALED_AT_EXPORT}}",
+        "algorithm": "aes-256-gcm",
+        "kdf": "pbkdf2-sha512-100k",
+        "portable": true
+      },
+      "config": {
+        "project_name": "nearpittsburgh-sprayfoam",
+        "framework": "nextjs",
+        "auto_deploy": true,
+        "branch": "main",
+        "domain": "sprayfoam.nearpittsburgh.com"
+      },
+      "env_keys": {
+        "token": "VERCEL_TOKEN"
+      }
+    },
+    {
+      "service": "github",
+      "name": "GitHub Repository",
+      "environment": "production",
+      "auth_type": "bearer",
+      "credential_keys": ["token"],
+      "sealed": true,
+      "vault": {
+        "data": "{{SEALED_AT_EXPORT}}",
+        "algorithm": "aes-256-gcm",
+        "kdf": "pbkdf2-sha512-100k",
+        "portable": true
+      },
+      "config": {
+        "org": "Crypto-Goatz",
+        "repo": "ecospray-solutions",
+        "branch": "main",
+        "visibility": "private"
+      },
+      "env_keys": {
+        "token": "GITHUB_TOKEN"
+      }
+    },
+    {
+      "service": "godaddy",
+      "name": "Domain DNS",
+      "environment": "production",
+      "auth_type": "api_key",
+      "credential_keys": ["api_key", "api_secret"],
+      "sealed": true,
+      "vault": {
+        "data": "{{SEALED_AT_EXPORT}}",
+        "algorithm": "aes-256-gcm",
+        "kdf": "pbkdf2-sha512-100k",
+        "portable": true
+      },
+      "config": {
+        "domain": "nearpittsburgh.com",
+        "subdomain": "sprayfoam",
+        "dns_type": "CNAME",
+        "dns_value": "cname.vercel-dns.com"
+      },
+      "env_keys": {
+        "api_key": "GODADDY_API_KEY",
+        "api_secret": "GODADDY_API_SECRET"
+      }
+    }
+  ],
+
+  "infrastructure": {
+    "hosting": {
+      "provider": "vercel",
+      "framework": "next.js 15",
+      "runtime": "nodejs",
+      "region": "iad1",
+      "auto_deploy": true,
+      "deploy_branch": "main"
+    },
+    "repository": {
+      "provider": "github",
+      "org": "Crypto-Goatz",
+      "name": "ecospray-solutions",
+      "url": "https://github.com/Crypto-Goatz/ecospray-solutions"
+    },
+    "domain": {
+      "registrar": "godaddy",
+      "parent": "nearpittsburgh.com",
+      "subdomain": "sprayfoam",
+      "full": "sprayfoam.nearpittsburgh.com",
+      "ssl": "auto (vercel)",
+      "cdn": "vercel edge network"
+    }
+  },
+
+  "application": {
+    "stack": {
+      "framework": "Next.js 15.5",
+      "ui": "React 19",
+      "styling": "Tailwind CSS v4",
+      "language": "TypeScript",
+      "icons": "lucide-react"
+    },
+    "pages": {
+      "total": 39,
+      "static": 14,
+      "dynamic_services": 5,
+      "dynamic_areas": 18,
+      "api": 1,
+      "seo": 2
+    },
+    "seo": {
+      "strategy": "SXO — Search Experience Optimization",
+      "programmatic_pages": 23,
+      "json_ld_types": [
+        "LocalBusiness", "Service", "FAQPage", "HowTo",
+        "BreadcrumbList", "Review", "Article"
+      ],
+      "sitemap": "dynamic — 39 URLs",
+      "robots": "allow all + bot rules",
+      "llms_txt": true
+    },
+    "lead_capture": {
+      "type": "multi-step form (4 steps)",
+      "steps": [
+        "Project type selection",
+        "Insulation area checkboxes",
+        "Timeline preference",
+        "Contact information"
+      ],
+      "endpoint": "/api/leads",
+      "routing": "CRM contact creation with tags",
+      "fallback": "always returns success to never lose a lead"
+    },
+    "key_files": {
+      "constants": "lib/constants.ts",
+      "services_data": "lib/services-data.ts",
+      "areas_data": "lib/areas-data.ts",
+      "testimonials": "lib/testimonials-data.ts",
+      "schema_generators": "lib/schema.ts",
+      "lead_api": "app/api/leads/route.ts",
+      "layout": "app/layout.tsx",
+      "homepage": "app/page.tsx",
+      "sitemap": "app/sitemap.ts"
+    }
+  },
+
+  "content": {
+    "services": [
+      { "slug": "residential-insulation", "title": "Residential Spray Foam Insulation" },
+      { "slug": "commercial-insulation", "title": "Commercial Spray Foam Insulation" },
+      { "slug": "new-construction", "title": "New Construction Insulation" },
+      { "slug": "crawl-space-insulation", "title": "Crawl Space Insulation & Encapsulation" },
+      { "slug": "attic-insulation", "title": "Attic Spray Foam Insulation" }
+    ],
+    "areas": [
+      "Pittsburgh", "Cranberry Township", "Monroeville", "Murrysville",
+      "Bethel Park", "Mount Lebanon", "Wexford", "Mars", "Robinson Township",
+      "Moon Township", "Irwin", "North Huntingdon", "Peters Township",
+      "Canonsburg", "Washington", "Greensburg", "Latrobe", "Indiana"
+    ],
+    "testimonials_count": 9,
+    "faqs_per_page": "4-10",
+    "stats": {
+      "experience": "12+",
+      "projects": "1,500+",
+      "rating": "4.9",
+      "reviews": "200+",
+      "savings": "50%"
+    }
+  },
+
+  "operations": {
+    "lead_flow": {
+      "source": "sprayfoam.nearpittsburgh.com",
+      "capture": "Multi-step form → /api/leads",
+      "routing": "CRM API → Contact creation with tags",
+      "tags": ["spray-foam-lead", "nearpittsburgh", "website-form"],
+      "notification": "CRM pipeline + email notification",
+      "monetization": "Monthly subscription per contractor"
+    },
+    "deployment": {
+      "trigger": "git push to main",
+      "pipeline": "GitHub → Vercel auto-deploy",
+      "ssl": "automatic via Vercel",
+      "cdn": "Vercel Edge Network (global)"
+    },
+    "maintenance": {
+      "content_updates": "Edit lib/constants.ts, services-data.ts, areas-data.ts",
+      "add_area": "Add entry to lib/areas-data.ts — auto-generates page + sitemap",
+      "add_service": "Add entry to lib/services-data.ts — auto-generates page + sitemap",
+      "phone_change": "Single edit in lib/constants.ts propagates everywhere"
+    }
+  },
+
+  "transfer_protocol": {
+    "type": "digital-deed",
+    "version": "1.0.0",
+    "description": "This .0n file serves as a Digital Business Deed — the complete, encrypted, portable package required to transfer full operational control of this business to a new owner.",
+    "contents_on_transfer": [
+      "All service credentials (encrypted with AES-256-GCM)",
+      "Domain and DNS configuration",
+      "Hosting and deployment access",
+      "Source code repository access",
+      "CRM pipeline and lead routing",
+      "Brand assets and content",
+      "Operational documentation"
+    ],
+    "transfer_steps": [
+      "1. Seller exports .0n bundle with passphrase via 0nMCP engine",
+      "2. Bundle is transmitted via secure channel (encrypted in transit)",
+      "3. Buyer opens bundle in 0nMCP Universal Export Tool",
+      "4. Buyer verifies all connections with engine_verify",
+      "5. Buyer re-seals with their own passphrase via engine_bundle",
+      "6. Buyer optionally vault-seals for machine binding",
+      "7. Seller's original passphrase is invalidated"
+    ],
+    "security_guarantees": [
+      "AES-256-GCM authenticated encryption — tamper-evident",
+      "PBKDF2-SHA512 with 100,000 iterations — brute-force resistant",
+      "Fresh random salt + IV per seal — no ciphertext correlation",
+      "SHA-256 integrity checksums on all bundle sections",
+      "Portable encryption — works on any machine with correct passphrase",
+      "Optional machine binding via vault for post-transfer lockdown",
+      "Zero external dependencies — Node.js crypto only"
+    ]
+  },
+
+  "manifest": {
+    "bundle_version": "1.0.0",
+    "generator": "0nmcp-engine/1.7.0",
+    "connection_count": 4,
+    "services": ["crm", "vercel", "github", "godaddy"],
+    "encryption": {
+      "method": "portable",
+      "algorithm": "aes-256-gcm",
+      "kdf": "pbkdf2-sha512-100k"
+    }
+  }
+}

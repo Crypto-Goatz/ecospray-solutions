@@ -7,6 +7,7 @@ import Testimonials from "@/components/testimonials";
 import CtaBanner from "@/components/cta-banner";
 import AreasGrid from "@/components/areas-grid";
 import ImageShowcase from "@/components/image-showcase";
+import LicensedCta from "@/components/licensed-cta";
 import { reviewSchema } from "@/lib/schema";
 
 export default function HomePage() {
@@ -43,6 +44,9 @@ export default function HomePage() {
       <ScrollReveal>
         <Testimonials />
       </ScrollReveal>
+
+      {/* Licensed Contractor CTA */}
+      <LicensedCta />
 
       {/* CTA - Estimate */}
       <ScrollReveal>
